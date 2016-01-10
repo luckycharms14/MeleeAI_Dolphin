@@ -1,0 +1,213 @@
+-- Memory Addresses --
+
+Note: see SSBM Data Sheet in the public google drive folder
+
+(32-bit) P1 Char Data Pointer - 0x80453130
+(32-bit) P2 Char Data Pointer - P1 Char Data Address + 0x08
+
+(8-bit) P1 stock count - 0x8045310E
+(8-bit) P2 stock count - 0x80453F9E
+
+(16-bit) P1 percent - 0x804530E0
+(16-bit) P2 percent - 0x80453F70
+
+(8-bit) P1 character select - 0x803F0E0A
+(8-bit) P2 character select - 0x803F0E2E
+
+(32-bit) P1 X coordinate - 0x80453090
+(32-bit) P1 Y coordinate - 0x80453094
+
+(32-bit) P2 X coordinate - 0x80453F20
+(32-bit) P2 Y coordinate - 0x80453F24
+
+(16-bit) Stage ID - 0x804D6CAD
+(16-bit) Frame Counter - 0x8046B6CC
+
+Following addresses offset from P2 Char Data Pointer
+
+(32-bit) Frames of Hitstun Left - 0x23A0
+(32-bit) Vertical Velocity - 0xF0
+(32-bit) Action State - 0x70
+(32-bit) Frames of Hitlag Left - 0x19BC
+(8-bit) Jumps Used - 0x19C8
+(32-bit) Shield Size - 0x19F8
+(32-bit) Air/Ground - 0x140
+
+Main Game Loop Function Pointer - 0x8006AD10 //runs once per character per frame
+
+-- Stage ID --
+
+Yoshi's Story = 6
+Fountain of Dreams = 8
+Pokemon Stadium = 18
+Battlefield = 24
+Final Destination = 25
+Dreamland = 26
+
+-- Stage Information --
+
+Note that character heights are measured at their feet
+
+-- Yoshi's Story --
+
+Stage Limits = (-58.91, 58.91)
+
+Lower Platform Height = 23.45
+
+Top Platform Height = 42.0
+
+-- Fountain of Dreams --
+
+Stage Limits = (-66.26, 66.26)
+
+Top Platform Height = 42.75
+
+-- Pokemon Stadium --
+
+Stage Limits = (-90.66, 90.66)
+
+Lower Platform Height = 25.0
+
+-- Battlefield -- 
+
+Stage Limits = (-70.32, 70.32)
+
+Lower Platform Height = 27.2
+Lower Platform L/R = (-57.6, -20) && (20, 57.6) 
+
+Top Platform Height = 54.4
+Top Platform L/R = (-18.8, 18.8)
+
+-- Final Destination --
+
+Stage Limits = (-88.47, 88.47)
+
+-- Dreamland --
+
+Stage Limits = (-80.18, 80.18)
+
+Lower Platform Height = 30.24
+
+Top Platform Height = 51.43
+
+-- Character Information --
+
+-- Fox --
+double jump can recover from -55 vertically
+20 frame wait on double jump to reach apex
+Firefox length = 85
+Illusion length = 84
+can fade after firefox at max angle of 63 deg (supposedly)
+
+-- PowerPC Assembly --
+
+r1 = register 1
+li r3, 2 //load immediate - load 2 into r3
+mr r4,r26 //move register - copy value in r26 to r4
+add r3,r3,r5 //add - add r4+r5 store in r3
+cmpwi r3,2 //compare word immediate - compare r3 to the value 2
+beq 0x34 //branch if equal - if r3 == 2, move ahead 0x34 bytes (line is 4 bytes) i.e. 13 lines
+lwz r3,0x40(r6) //load word and zero - in this case we have a memory address
+  //stored in r6, this loads in the value stored at (the memory address in r6 offset by 0x40)
+  //this also clears r3 before writing (thats the zero part)
+stw r3,0x0(r7) //store word - take value in r3 and store it in the address at r7, no offset
+lis r31, 0x805a //load immediate and shift - 
+  //li r31, 0x805a puts 0000805a in r31
+  //lis r31, 0x805a puts 805a0000 in r31
+b1 0x484 //branch and link - branch to that line of code, remember where we branched from
+blr //branch to the link register - return to the linked part of code
+
+-- Controller Memory Addressess --
+
+P1
+0x804C1FAC - Contr 1 Digital Data - Bit Flags xxxx xxxx UDLR UDLR xxxS YXBA xLRZ UDRL
+0x804C1FB0 - Contr 1 Digital Data (previous frame) - (?) Nibbles: [0] ? [1] ? [2]
+             C-Stick [3] Control Stick [4] Start Button [5] Right-Side Buttons [6]
+             Top-of-Controller Buttons [7] D-Pad
+0x804C1FC8 - Contr 1 Shoulder Data - Unsigned Bytes (0x00,0x8C) | Bytes: [0] L Shoulder [1] R Shoulder
+0x804C1FC4 - Contr 1 Analog Data - Signed Bytes (-79,79) (0xB1,0x4F)
+             Bytes: [0] Control Stick X [1] Control Stick Y
+                    [2] C-Stick X [3] C-Stick Y
+//actually four adddresses here
+0x804C1FCC - Contr 1 Analog Data - 32-bit Floats (-1,1) | Words (4 Bytes): [0] Control Stick X
+             [1] Control Stick Y [2] C-Stick X [3] C_Sticks Y
+ 
+Contr (2-4) found by adding 0x44 multiples to these addressess
+          
+(gecko injects at 80001800)
+free memory : 80001800 - 80003fff
+
+toggle switch for override, 1 = MeleeAI, 0 = default AI??
+
+-- Gecko Codes --
+
+Spoof Controller Plugins
+This makes the game think there are additional controller plugged in.
+By default, all ports are spoofed, but you can comment out lines for the 
+various ports in the text file library to specify which are spoofed.
+[Achilles]
+1.02
+04376BD4 38000000 #(spoof P1)
+04376BDC 38000000 #(spoof P2)
+04376BF0 380000D8 #(spoof P3)
+04376C04 38000001 #(spoof P4)
+
+-- Controller Layout in Memory --
+
+804C1FAC   P1 Button values, length 68/0x44 (so players are 0x44 apart)
+                804C1FAC = all buttons pressed this frame
+                804C1FB0 = held buttons, I think
+                804C1FB4 = instant buttons
+                804C1FC4 = jX, byte
+                804C1FC5 = jY, byte
+                804C1FC6 = cX, byte
+                804C1FC7 = cY, byte
+                804C1FC8 = L analog, byte
+                804C1FC9 = R analog, byte
+                804C1FCA = ?? byte A (soft analog L?)
+                804C1FCB = ?? byte B (soft analog R?)
+                804C1FCC = joystick x-axis, float
+                804C1FD0 = joystick y-axis
+                804C1FD4 = c-stick x-axis, float (-1 to 1)
+                804C1FD8 = c-stick y-axis, float (-1 to 1)
+                804C1FDC = L analog, float 
+                804C1FE0 = R analog, float
+                804C1FE4 = ?? float A (soft analog L?)
+                804C1FE8 = ?? float B (soft analog R?)
+                804C1FED = Controller plugged in bool (00 = yes, FF = no), byte
+
+P2 starts at 804C1FF0
+
+804C1FAC:
+804C1FB0:
+804C1FB4:
+
+00000010 - Z
+00000020 - R
+00000040 - L
+00000100 - A
+00000200 - B
+00000400 - X
+00000800 - Y
+00100000 - C-UP
+00200000 - C-DOWN
+00400000 - C-LEFT
+00800000 - C-RIGHT
+00010000 - UP
+00020000 - DOWN
+00040000 - LEFT
+00080000 - RIGHT
+
+804C1FC4:
+804C1FC5:
+804C1FC6:
+804C1FC7:
+
+B1 - 4F
+79 - 177 (99 values, 0 with 49 on each side)
+
+
+
+
+
+

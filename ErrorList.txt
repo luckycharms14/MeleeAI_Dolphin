@@ -1,0 +1,3 @@
+-Recovery sequence initiates again during fox descent if fox missed ledge and is falling to death
+-fading to ledge has alot of problems
+
