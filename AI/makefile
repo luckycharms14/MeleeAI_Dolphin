@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -c -Wall -Wextra -pedantic -std=c++11
 
-OBJECTS = build/MeleeAI.o build/GameState.o build/MemShareController.o build/MoveSet.o build/AI.o build/StageInfo.o build/DefensiveAI.o build/RecoveryBot.o build/RecoveryFox.o build/LedgeBot.o
+OBJECTS = build/MeleeAI.o build/GameState.o build/MemShareController.o build/PipeController.o build/MoveSet.o build/AI.o build/StageInfo.o build/DefensiveAI.o build/RecoveryBot.o build/RecoveryFox.o build/LedgeBot.o
 
 MeleeAI: $(OBJECTS)
 	$(CXX) -L /lib32 -pthread $(OBJECTS) -lrt -o MeleeAI
@@ -14,6 +14,9 @@ build/GameState.o: source/GameState.cpp
 
 build/MemShareController.o: source/MemShareController.cpp
 	$(CXX) $(CFLAGS) source/MemShareController.cpp -o build/MemShareController.o
+
+build/PipeController.o: source/PipeController.cpp
+	$(CXX) $(CFLAGS) source/PipeController.cpp -o build/PipeController.o
 	
 build/MoveSet.o: source/AI/MoveSet.cpp
 	$(CXX) $(CFLAGS) source/AI/MoveSet.cpp -o build/MoveSet.o
