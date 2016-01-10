@@ -1,8 +1,8 @@
-#include "Controller.hpp"
+#include "MemShareController.hpp"
 
 #include <cmath>
 
-Controller::Controller() {
+MemShareController::MemShareController() {
 	{
 		using namespace boost::interprocess;
 		melee_mem = managed_shared_memory{open_only, "MeleeAI"};
@@ -18,17 +18,17 @@ Controller::Controller() {
 
 }
 
-void Controller::Press(char button) {
+void MemShareController::Press(char button) {
   m_controller_state.buttons += m_button_hex_map[button];
-  WriteStateToMemory();
+  WriteState();
 }
 
-void Controller::Release(char button) {
+void MemShareController::Release(char button) {
   m_controller_state.buttons -= m_button_hex_map[button];
-  WriteStateToMemory();
+  WriteState();
 }  
 
-void Controller::Stick(float rad, int deg, bool CStick) {
+void MemShareController::Stick(float rad, int deg, bool CStick) {
 
   union LongFloat {
     long lg;
@@ -47,11 +47,11 @@ void Controller::Stick(float rad, int deg, bool CStick) {
     m_controller_state.control_stick[1] = y.lg;
   }
 
-  WriteStateToMemory();
+  WriteState();
 
 }
 
-void Controller::WriteStateToMemory() {
+void MemShareController::WriteState() {
 
   m_full_control_state[0] = m_controller_state.buttons;
   m_full_control_state[11] = m_controller_state.control_stick[0];
