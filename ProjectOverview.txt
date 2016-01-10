@@ -1,1 +1,33 @@
-TBD
+-- General Goals --
+
+I think the main goal should be publishing a library (for both windows and linux) that contains all of the code to control a player in the game, a basic structure for an AI, and a very clear and simple UI. With the end goal being that someone with a basic understanding of programming could write a program that has, for example, falco stand still and shoot SH lasers at random intervals. I think this would be something that everyone could work towards since I know several people are interested more in the mechanics of the AI for their own purposes. Having this as the main goal means that everyone who wants to design their own AI is working towards a better library for themselves to use, everyone who wants to work specifically on the MeleeAI training tool are working towards cleaner code and a user friendly version that works on Windows, and anyone else interested in this idea now has a way to experiment with their own training situations
+
+​Since we have so many people willing to help, alongside working towards a clean library for Windows and Linux, we can also work towards improving the existing AI. Which would consist of improving Fox's recovery, adding in more mechanics for the AI, and writing the recovery trees for other characters
+
+-- Specific Priorities --
+
+0) Documentation!
+
+1) Make the program (Linux) not depend on the special build of Dolphin
+1a) rewrite Controller.cpp to run through named pipes: https://github.com/dolphin-emu/dolphin/pull/3170
+1b) rewrite GameState.cpp to use memory watcher: https://github.com/dolphin-emu/dolphin/pull/3403 see also pull request 3413
+
+2) Port the code in pull request 3413 to Windows
+
+3) Once 1 and 2 are done, port the entire program to Windows
+
+4) Design a clean, easy to use, user interface, a simple GUI might be the best
+
+5) Clean up the code to be published for the library, important parts are: 1) reading game state, 2) sending input, 3) clean UI, 4) basic AI structure. Goal here
+is giving beginner programmers the ability to make simple training situations, and more advanced programmers the foundation to create their own AI. It will simulataneously add structure and clarity to our project.
+
+6) Improve the AI
+6a) Fix the mistakes in ErrorList.txt
+6b) Add in general functionality (Teching, DI, etc...)
+6c) Add Character specific recovery trees
+
+
+
+
+
+
