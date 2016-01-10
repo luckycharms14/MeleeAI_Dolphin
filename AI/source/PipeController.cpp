@@ -3,7 +3,7 @@
 #include <cmath>
 
 
-std::string PipeController::pipePath = "/home/aaron/pipe";
+std::string PipeController::pipePath = "/path/to/pipe";
 
 PipeController::PipeController() {
 
