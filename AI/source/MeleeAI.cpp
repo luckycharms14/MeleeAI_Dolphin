@@ -16,11 +16,12 @@ int main() {
   GameState* st = new SocketGameState();
 
   while (true) {
-//    while(!st->InGame()) {GLOBAL_SLEEP(100)}
-//    ai.MakeMove();
-//      mv.LedgeDash(-17);
-    std::cout << st->Coordinates(1).first << " " << st->Coordinates(1).second << std::endl;
-//    std::cout << st->Percent(1) << " " << st->Percent(2) << std::endl;
+    while(!st->InGame()) {GLOBAL_SLEEP(100)}
+    ai.MakeMove();
+//    mv.LedgeDash(-17);
+//    std::cout << st->P2InAir() << std::endl;
+//    std::cout << st->CharacterID(1) << " " << st->CharacterID(2) << std::endl;
+//    std::cout << std::hex << st->Raw(16) << std::endl;
     GLOBAL_SLEEP(100)
   }
 

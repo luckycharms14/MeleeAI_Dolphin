@@ -26,38 +26,34 @@ void SocketGameState::SocketSetup() {
 
 void SocketGameState::Update() {
   char* buf[128];
-  char temp1[16];
-  char temp2[24];
-  char add[8];  
-  char val[8];
-  char offset[6];
+  char temp[32];
+  char add[9];  
+  char val[9];
+  char offset[7];
 
-  while (poll(&fds,1,NULL) > 0)
+  while (poll(&fds,1,0) > 0)
   {
       struct sockaddr remaddr;
       socklen_t addr_len;
 
       recvfrom(fd, buf, sizeof(buf), 0, &remaddr, &addr_len);
-      sprintf(temp1,"%s",buf); 
-      strncpy(add, temp1, 8);
+      snprintf(temp,32,"%s",buf); 
+      strncpy(add, temp, 8);
+      add[8] = '\0';
       if (strcmp(add, "80453130") == 0) {
-        sprintf(temp2,"%s",buf); 
-        strncpy(offset,temp2 + 12, 4);
-        strcpy(val, temp2 + 16);
+        strncpy(offset,temp + 12, 4);
+        strncpy(val, temp + 16,9);
         UpdateMemSlot(strtol(offset,NULL,16),strtol(val,NULL,16));
       } else {
-        strncpy(val, temp1 + 8, 8);
+        strncpy(val, temp + 8, 9);
         UpdateMemSlot(strtol(add,NULL,16), strtol(val,NULL,16));
       }
   }
 }
 
-void SocketGameState::UpdateMemSlot(uint32_t add, int32_t val) {
-//  std::cout << std::hex << add << " " << val << std::endl;
+void SocketGameState::UpdateMemSlot(uint32_t add, uint32_t val) {
   raw_input[m_address_index[add]] = val;
-
 }
-
 
 
 

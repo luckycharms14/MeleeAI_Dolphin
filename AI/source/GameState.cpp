@@ -28,17 +28,17 @@ std::pair<float, float> GameState::Coordinates(int player) {
 
 int GameState::StageID() {
   UpdateAddress(10);
-  return raw_input[10];
+  return Read16(10);
 }
 
 int GameState::FrameCount() {
   UpdateAddress(11);
-  return raw_input[11];
+  return Read16(11);
 }
 
 int GameState::P2Hitstun() {
-  UpdateAddress(12);
-  return LongToFloat(raw_input[12]);
+  UpdateAddress(18);
+  return LongToFloat(raw_input[18]);
 }
 
 float GameState::P2VerticalVelocity() {
@@ -47,8 +47,8 @@ float GameState::P2VerticalVelocity() {
 }
 
 long GameState::P2ActionState() {
-  UpdateAddress(14);
-  return raw_input[14];
+  UpdateAddress(12);
+  return raw_input[12];
 }
 
 int GameState::P2Hitlag() {
@@ -58,7 +58,7 @@ int GameState::P2Hitlag() {
 
 int GameState::P2JumpsUsed() {
   UpdateAddress(16);
-  return raw_input[16];
+  return (Raw(16) & 0xFFFF0000) >> 24;
 }
 
 float GameState::P2ShieldSize() {
@@ -67,11 +67,11 @@ float GameState::P2ShieldSize() {
 }  
 
 bool GameState::P2InAir() {
-  UpdateAddress(18);
-  return raw_input[18];
+  UpdateAddress(14);
+  return raw_input[14];
 }
 
-int32_t GameState::Raw(int n) {
+uint32_t GameState::Raw(int n) {
   UpdateAddress(n);
   return raw_input[n];
 }
@@ -83,20 +83,21 @@ bool GameState::InGame() {
   return last_frame != FrameCount();
 }
 
-int8_t GameState::Read8(int n) {
+uint8_t GameState::Read8(int n) {
   return raw_input[n] >> 24;
 }
 
-int16_t GameState::Read16(int n) {
+uint16_t GameState::Read16(int n) {
   return raw_input[n] >> 16;
 }
 
-float GameState::LongToFloat(int32_t n) {
+float GameState::LongToFloat(long n) {
   union LongFloat {
-    int32_t lg;
+    long lg;
     float fl;
   };
   union LongFloat ret;
   ret.lg = n;
   return ret.fl;
 }
+

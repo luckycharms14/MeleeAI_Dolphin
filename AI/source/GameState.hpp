@@ -10,11 +10,11 @@ class GameState {
 
 private:
 
-  float LongToFloat(int32_t);
+  float LongToFloat(long);
 
 protected:
 
-	int32_t raw_input[MEM_SIZE];
+	uint32_t raw_input[MEM_SIZE];
   
 public:
 	
@@ -39,10 +39,10 @@ public:
   float P2ShieldSize();
   bool P2InAir();
 
-  int8_t  Read8(int);
-  int16_t Read16(int);
+  uint8_t  Read8(int);
+  uint16_t Read16(int);
 
-  int32_t Raw(int); //get raw data from dolphin
+  uint32_t Raw(int); //get raw data from dolphin
 
 };
 
