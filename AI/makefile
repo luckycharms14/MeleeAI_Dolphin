@@ -1,16 +1,27 @@
 CXX = g++
 CFLAGS = -c -Wall -Wextra -pedantic -std=c++11
 
-OBJECTS = build/MeleeAI.o build/GameState.o build/MemShareController.o build/PipeController.o build/MoveSet.o build/AI.o build/StageInfo.o build/DefensiveAI.o build/RecoveryBot.o build/RecoveryFox.o build/LedgeBot.o
+OBJECTS = build/MeleeAI.o build/GameState.o build/SocketGameState.o build/PipeController.o build/MoveSet.o build/AI.o build/StageInfo.o build/DefensiveAI.o build/RecoveryBot.o build/RecoveryFox.o build/LedgeBot.o
+
+BOOST_OBJECTS = $(OBJECTS) build/MemShareGameState.o build/MemShareController.o
 
 MeleeAI: $(OBJECTS)
 	$(CXX) -L /lib32 -pthread $(OBJECTS) -lrt -o MeleeAI
 	
+boost_MeleeAI: $(BOOST_OBJECTS)
+	$(CXX) -L /lib32 -pthread $(BOOST_OBJECTS) -lrt -o MeleeAI
+
 build/MeleeAI.o: source/MeleeAI.cpp
 	$(CXX) $(CFLAGS) source/MeleeAI.cpp -o build/MeleeAI.o
 
 build/GameState.o: source/GameState.cpp
 	$(CXX) $(CFLAGS) source/GameState.cpp -o build/GameState.o
+
+build/SocketGameState.o: source/SocketGameState.cpp
+	$(CXX) $(CFLAGS) source/SocketGameState.cpp -o build/SocketGameState.o
+
+build/MemShareGameState.o: source/MemShareGameState.cpp
+	$(CXX) $(CFLAGS) source/MemShareGameState.cpp -o build/MemShareGameState.o
 
 build/MemShareController.o: source/MemShareController.cpp
 	$(CXX) $(CFLAGS) source/MemShareController.cpp -o build/MemShareController.o

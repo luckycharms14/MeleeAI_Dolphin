@@ -4,23 +4,22 @@
 #define MEM_SIZE 19
 
 #include <utility>
-#include <boost/interprocess/managed_shared_memory.hpp>
 
 class GameState {
 
 private:
 
-	long raw_input[MEM_SIZE];
-  long contr_input[19];
-  boost::interprocess::managed_shared_memory melee_mem;
-  
   float LongToFloat(long);
+
+protected:
+
+	long raw_input[MEM_SIZE];
   
 public:
 	
-	GameState();
+	virtual ~GameState() {}
 	
-  void UpdateAddress(int);
+  virtual void UpdateAddress(int) = 0;
 
   int Stocks(int);
   int Percent(int);
