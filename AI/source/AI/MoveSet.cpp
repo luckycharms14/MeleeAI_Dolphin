@@ -1,9 +1,9 @@
 #include "../Global.hpp"
 #include "MoveSet.hpp"
-#include "../MemShareController.hpp"
+#include "../PipeController.hpp"
 
 MoveSet::MoveSet() {
-  m_controller = new MemShareController();
+  m_controller = new PipeController();
 }
 
 MoveSet::~MoveSet() {

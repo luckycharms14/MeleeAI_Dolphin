@@ -1,5 +1,7 @@
 #include "SocketGameState.hpp"
 
+#include <iostream>
+
 /** Code adapted from spxtr's example code
 in pull request #3413 for the Dolphin Emulator */
 
@@ -50,8 +52,8 @@ void SocketGameState::Update() {
   }
 }
 
-void SocketGameState::UpdateMemSlot(uint32_t add, uint32_t val) {
-
+void SocketGameState::UpdateMemSlot(uint32_t add, int32_t val) {
+//  std::cout << std::hex << add << " " << val << std::endl;
   raw_input[m_address_index[add]] = val;
 
 }

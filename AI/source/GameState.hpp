@@ -4,16 +4,17 @@
 #define MEM_SIZE 19
 
 #include <utility>
+#include <stdint.h>
 
 class GameState {
 
 private:
 
-  float LongToFloat(long);
+  float LongToFloat(int32_t);
 
 protected:
 
-	long raw_input[MEM_SIZE];
+	int32_t raw_input[MEM_SIZE];
   
 public:
 	
@@ -38,7 +39,10 @@ public:
   float P2ShieldSize();
   bool P2InAir();
 
-  long Raw(int); //get raw data from dolphin
+  int8_t  Read8(int);
+  int16_t Read16(int);
+
+  int32_t Raw(int); //get raw data from dolphin
 
 };
 

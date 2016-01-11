@@ -5,22 +5,22 @@
 
 int GameState::Stocks(int player) {
   UpdateAddress(player - 1);  
-  return raw_input[player - 1];
+  return Read8(player - 1);
 }
 
 int GameState::Percent(int player) { 
   UpdateAddress(2 + (player - 1));
-  return raw_input[2 + (player - 1)];
+  return Read16(2 + (player - 1));
 }
 
 int GameState::CharacterID(int player) {
   UpdateAddress(4 + (player - 1));
-  return raw_input[4 + (player - 1)];
+  return (raw_input[4 + (player - 1)] & 0x0000FFFF) >> 8;
 }
 
 std::pair<float, float> GameState::Coordinates(int player) {
   UpdateAddress(6 + 2 * (player - 1));
-  UpdateAddress(7 + 2 * (player - 1));
+  //UpdateAddress(7 + 2 * (player - 1));
   float x = LongToFloat(raw_input[6 + 2 * (player - 1)]);
   float y = LongToFloat(raw_input[7 + 2 * (player - 1)]);
   return std::make_pair(x, y);
@@ -71,7 +71,7 @@ bool GameState::P2InAir() {
   return raw_input[18];
 }
 
-long GameState::Raw(int n) {
+int32_t GameState::Raw(int n) {
   UpdateAddress(n);
   return raw_input[n];
 }
@@ -83,9 +83,17 @@ bool GameState::InGame() {
   return last_frame != FrameCount();
 }
 
-float GameState::LongToFloat(long n) {
+int8_t GameState::Read8(int n) {
+  return raw_input[n] >> 24;
+}
+
+int16_t GameState::Read16(int n) {
+  return raw_input[n] >> 16;
+}
+
+float GameState::LongToFloat(int32_t n) {
   union LongFloat {
-    long lg;
+    int32_t lg;
     float fl;
   };
   union LongFloat ret;
