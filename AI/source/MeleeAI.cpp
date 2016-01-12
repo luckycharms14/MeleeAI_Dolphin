@@ -15,26 +15,26 @@ int main() {
   DefensiveAI ai = DefensiveAI();
 //  MoveSet mv = MoveSet();
   GameState* st = new SocketGameState();
-//  Controller* cnt = new PipeController();
+  Controller* cnt = new PipeController();
 //  cnt->Stick(1,90);
 
-//cnt->Press('X');
+  cnt->Press('A');
 //  GLOBAL_SLEEP(3000);
 //  cnt->Stick(0,0);
 //  cnt->Release('X');
 //  cnt->Stick(1,90);
-  while (true) {
+//  while (true) {
 //mv.UpB();      
-    while(!st->InGame()) {GLOBAL_SLEEP(100)}
-    ai.MakeMove();
+//    while(!st->InGame()) {GLOBAL_SLEEP(100)}
+//    ai.MakeMove();
 //    mv.UpB();
 //    std::cout << st->P2InAir() << std::endl;
 //    std::cout << st->CharacterID(1) << " " << st->CharacterID(2) << std::endl;
 //    std::cout << std::hex << st->Raw(16) << std::endl;
 //    GLOBAL_SLEEP(100)
-  }
+//  }
 
-//  delete cnt;
+  delete cnt;
   delete st;
 }
 

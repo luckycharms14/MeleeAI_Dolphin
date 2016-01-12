@@ -20,8 +20,7 @@ PipeController::~PipeController() {
 
 void PipeController::Press(char button) {
   std::string output = "PRESS ";
-  *namedPipe << (output + button);
-//  *namedPipe << ((output + button) + "\n");
+  *namedPipe << ((output + button) + "\n");
 }
 
 void PipeController::Release(char button) {
