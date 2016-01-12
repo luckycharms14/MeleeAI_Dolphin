@@ -5,6 +5,7 @@
 #include "AI/AI.hpp"
 #include "AI/DefensiveAI.hpp"
 #include "PipeController.hpp"
+#include "Controller.hpp"
 
 #include <iostream>
 #include <sstream>
@@ -13,18 +14,19 @@
 int main() {
   
   DefensiveAI ai = DefensiveAI();
-//  MoveSet mv = MoveSet();
+  MoveSet mv = MoveSet();
   GameState* st = new SocketGameState();
-  Controller* cnt = new PipeController();
+//  PipeController* cnt = new PipeController();
 //  cnt->Stick(1,90);
+//  cnt->Press('B');
 
-  cnt->Press('A');
+//  cnt->Release('A');
 //  GLOBAL_SLEEP(3000);
 //  cnt->Stick(0,0);
 //  cnt->Release('X');
 //  cnt->Stick(1,90);
 //  while (true) {
-//mv.UpB();      
+mv.UpB();      
 //    while(!st->InGame()) {GLOBAL_SLEEP(100)}
 //    ai.MakeMove();
 //    mv.UpB();
@@ -34,7 +36,7 @@ int main() {
 //    GLOBAL_SLEEP(100)
 //  }
 
-  delete cnt;
+//  delete cnt;
   delete st;
 }
 

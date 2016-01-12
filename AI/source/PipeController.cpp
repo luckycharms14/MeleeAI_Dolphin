@@ -3,13 +3,13 @@
 #include <cmath>
 
 
-std::string PipeController::pipePath = "~/.dolphin-emu/Pipes/pipe";
+std::string PipeController::pipePath = "/home/tom/.dolphin-emu/Pipes/pipe";
 
 PipeController::PipeController() {
 
   namedPipe = new std::ofstream();
   namedPipe->open (pipePath);
-
+ 
 }
 
 PipeController::~PipeController() {
@@ -20,12 +20,12 @@ PipeController::~PipeController() {
 
 void PipeController::Press(char button) {
   std::string output = "PRESS ";
-  *namedPipe << ((output + button) + "\n");
+  *namedPipe << ((output + button) + "\n") << std::flush;
 }
 
 void PipeController::Release(char button) {
   std::string output = "RELEASE ";
-  *namedPipe << ((output + button) + "\n");
+  *namedPipe << ((output + button) + "\n") << std::flush;
 }  
 
 void PipeController::Stick(float rad, int deg, bool CStick) {
@@ -41,6 +41,6 @@ void PipeController::Stick(float rad, int deg, bool CStick) {
   output += " ";
   output += std::to_string(y);
 
-  *namedPipe << (output + "\n");
+  *namedPipe << (output + "\n") << std::flush;
 
 }

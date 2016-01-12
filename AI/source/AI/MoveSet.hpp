@@ -3,8 +3,6 @@
 
 #include "../Controller.hpp"
 
-//TODO: name moves instead of switch statement
-
 class MoveSet {
 
 private:
