@@ -1,7 +1,7 @@
-#ifndef SOCKET_GAME_STATE_HPP
-#define SOCKET_GAME_STATE_HPP
+#ifndef MEM_READER_HPP
+#define MEM_READER_HPP
 
-#include "GameState.hpp"
+#define NUM_ADDR 8
 
 #include <errno.h>
 #include <stdio.h>
@@ -10,17 +10,19 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <poll.h>
-#include <map>
 
-class SocketGameState : public GameState {
+#include <map>
+#include <thread>
+
+class MemReader {
 
 private:
 
-  char *path = "/home/tom/.dolphin-emu/MemoryWatcher/MemoryWatcher";
+  MemReader();
 
-  int fd;
-  struct sockaddr_un addr; 
-  struct pollfd fds;
+  static MemReader* m_instance;
+
+  long raw_data[NUM_ADDR];
 
   std::map<long, int> m_address_index {
     {0x8045310E, 0},
@@ -44,14 +46,17 @@ private:
     {0x23A0, 18}
   };
 
+  int fd;
+  struct sockaddr_un addr; 
+
+  void MonitorMemory();
+
 public:
 
-  SocketGameState();
-
-  void UpdateAddress(int);  
-  void SocketSetup();
-  void Update();
-  void UpdateMemSlot(uint32_t, uint32_t);
+  static MemReader* Instance();
+  std::thread MemMonitorThread();
+  long ReadAddress(int);
+  void UpdateMemAddress(long,long);
 
 };
 

@@ -1,13 +1,13 @@
 #include "../Global.hpp"
 #include "../StageInfo.hpp"
-#include "../SocketGameState.hpp"
+#include "../GameState.hpp"
 #include "AI.hpp"
 
 #include <cmath>
 #include <iostream>
 
 AI::AI() {
-  m_game_state = new SocketGameState();
+  m_game_state = new GameState();
   m_move_set = new MoveSet();
   m_generator = new std::default_random_engine;
 }
