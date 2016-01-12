@@ -3,7 +3,7 @@
 #include <cmath>
 
 
-std::string PipeController::pipePath = "/path/to/pipe";
+std::string PipeController::pipePath = "~/.dolphin-emu/Pipes/pipe";
 
 PipeController::PipeController() {
 
@@ -20,7 +20,8 @@ PipeController::~PipeController() {
 
 void PipeController::Press(char button) {
   std::string output = "PRESS ";
-  *namedPipe << ((output + button) + "\n");
+  *namedPipe << (output + button);
+//  *namedPipe << ((output + button) + "\n");
 }
 
 void PipeController::Release(char button) {
@@ -32,11 +33,11 @@ void PipeController::Stick(float rad, int deg, bool CStick) {
 
   float x, y;
 
-  x = rad * cos (deg * M_PI / 180);
-  y = rad * sin (deg * M_PI / 180);
-
+  x = 0.5 + rad * cos (deg * M_PI / 180) / 2;
+  y = 0.5 + rad * sin (deg * M_PI / 180) / 2;
+  
   std::string output = "SET ";
-  output += (CStick ? "1 " : "0 ");
+  output += (CStick ? "C " : "MAIN ");
   output += std::to_string(x);
   output += " ";
   output += std::to_string(y);
