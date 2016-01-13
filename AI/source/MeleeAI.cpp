@@ -15,7 +15,7 @@ int main() {
   DefensiveAI* ai = new DefensiveAI();
 
   while (1) {
-    while (!game_state->InGame()) {GLOBAL_SLEEP(100)}
+    while (!game_state->in_game) {GLOBAL_SLEEP(100)}
     ai->MakeMove();
   }
 }
