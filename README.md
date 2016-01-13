@@ -18,7 +18,7 @@ Inside the dolphin home folder you must create a FIFO pipe named ```pipe```, a `
 This is done with the following commands:
 
 ```bash
-$ cd dolphin-emu
+$ cd /path/to/dolphin-emu
 $ mkdir Pipes
 $ mkfifo Pipes/pipe
 $ mkdir MemoryWatcher
@@ -30,13 +30,11 @@ An example of addresses that can be used to populate ```Locations.txt``` is give
 Next you must tweak and build the source code.
 Navigate to the source directory at ```MeleeAI/AI/source```.
 There is a string (path) variable that needs to be changed to match the specifics of your system.
-In ```Global.hpp```, modify
+In ```Global.hpp```, modify the ```DOLPHIN_PATH``` variable to match the path of your dolphin home folder:
 
 ```C++
-const std::string DOLPHIN_PATH = "/home/tom/.dolphin-emu";
+const std::string DOLPHIN_PATH = "/path/to/dolphin-emu";
 ```
-
-to match the path of your dophin home folder.
 
 Navigate to the parent directory of the source folder, ```MeleeAI/AI```, and make and run MeleeAI with
 
