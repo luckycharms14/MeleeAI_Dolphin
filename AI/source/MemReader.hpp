@@ -1,7 +1,7 @@
 #ifndef MEM_READER_HPP
 #define MEM_READER_HPP
 
-#define NUM_ADDR 8
+#include "GameState.hpp"
 
 #include <errno.h>
 #include <stdio.h>
@@ -14,49 +14,70 @@
 #include <map>
 #include <thread>
 
+enum MemoryAddress
+{
+  p1_stocks,
+  p2_stocks,
+  p1_percent,
+  p2_percent,
+  p1_char,
+  p2_char,
+  p1_x,
+  p1_y,
+  p2_x,
+  p2_y,
+  stage_id,
+  frame_count,
+  p2_action_state,
+  p2_vert_velocity,
+  p2_in_air,
+  p2_hitlag_frames,
+  p2_jumps_used,
+  p2_shield_size,
+  p2_hitstun_frames
+};
+
 class MemReader {
 
 private:
 
-  MemReader();
-
-  static MemReader* m_instance;
-
-  long raw_data[NUM_ADDR];
-
-  std::map<long, int> m_address_index {
-    {0x8045310E, 0},
-    {0x80453F9E, 1},
-    {0x804530E0, 2},
-    {0x80453F70, 3},
-    {0x803F0E08, 4},
-    {0x803F0E2C, 5},
-    {0x80453090, 6},
-    {0x80453094, 7},
-    {0x80453F20, 8},
-    {0x80453F24, 9},
-    {0x804D6CAD, 10},
-    {0x8046B6CC, 11},
-    {0x70, 12},
-    {0xF0, 13},
-    {0x140, 14},
-    {0x19BC, 15},
-    {0x19C8, 16},
-    {0x19F8, 17},
-    {0x23A0, 18}
+  std::map<std::string,int> m_address_index { 
+    {"8045310E", p1_stocks},
+    {"80453F9E", p2_stocks},
+    {"804530E0", p1_percent},
+    {"80453F70", p2_percent},
+    {"803F0E08", p1_char},
+    {"803F0E2C", p2_char},
+    {"80453090", p1_x},
+    {"80453094", p1_y},
+    {"80453F20", p2_x},
+    {"80453F24", p2_y},
+    {"804D6CAD", stage_id},
+    {"8046B6CC", frame_count},
+    {"80453130 08 70", p2_action_state},
+    {"80453130 08 F0", p2_vert_velocity},
+    {"80453130 08 140", p2_in_air},
+    {"80453130 08 19BC", p2_hitlag_frames},
+    {"80453130 08 19C8", p2_jumps_used},
+    {"80453130 08 19F8", p2_shield_size},
+    {"80453130 08 23A0", p2_hitstun_frames}
   };
 
   int fd;
   struct sockaddr_un addr; 
 
+  GameState* m_game_state;
+
   void MonitorMemory();
+  void SocketSetup();
+  void UpdateMemAddress(std::string,long);
+  float LongToFloat(long);
 
 public:
 
-  static MemReader* Instance();
+  MemReader(GameState*);
+
   std::thread MemMonitorThread();
-  long ReadAddress(int);
-  void UpdateMemAddress(long,long);
 
 };
 

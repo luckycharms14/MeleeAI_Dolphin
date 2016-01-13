@@ -1,3 +1,4 @@
 -Recovery sequence initiates again during fox descent if fox missed ledge and is falling to death
 -fading to ledge has alot of problems
+-Unknown Pointer 0x1B1A1857 PC 0x80347370 LR 80339BC0
 

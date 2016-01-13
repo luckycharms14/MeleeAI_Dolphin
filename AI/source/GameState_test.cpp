@@ -7,19 +7,14 @@
 
 int main() {
   
-  MemReader* mr = MemReader::Instance();
-  std::thread mem_reader = mr->MemMonitorThread();
+  GameState* game_state = GameState::Instance();
+  MemReader mr_1 = MemReader(game_state);
+  std::thread mem_reader = mr_1.MemMonitorThread();
 
-  GameState* gs_1 = new GameState();
-  GameState* gs_2 = new GameState();
+  GameState* gs_1 = GameState::Instance();
 
   while (1) {
-//    std::cout << gs_1->Stocks(1) << " " << gs_2->Stocks(2) << std::endl;
-//    std::cout << gs_2->Percent(1) << " " << gs_2->Percent(2) << std::endl;
-//    std::cout << gs_1->CharacterID(1) << " " << gs_2->CharacterID(2) << std::endl;
-//    std::cout << gs_2->FrameCount() << std::endl;
-//    std::cout << gs_1->Coordinates(1).first << " " << gs_1->Coordinates(1).second << std::endl;
-//    std::cout << gs_2->Coordinates(2).first << " " << gs_2->Coordinates(2).second << std::endl;
+    std::cout << gs_1->stage_id << " " << gs_1->frame_count << std::endl;
     GLOBAL_SLEEP(100);
   }
 }

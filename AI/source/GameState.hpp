@@ -1,45 +1,38 @@
 #ifndef GAME_STATE_HPP
 #define GAME_STATE_HPP
 
-#define MEM_SIZE 19
-
-#include "MemReader.hpp"
-
-#include <utility>
-#include <stdint.h>
-
 class GameState {
 
 private:
 
-  float LongToFloat(long);
-  MemReader* m_mem_reader;
+  GameState() {}
+
+  static GameState* m_instance;
 
 public:
-	
-  GameState();
 
-  int Stocks(int);
-  int Percent(int);
-  int CharacterID(int);
-  std::pair<float, float> Coordinates(int);
-  int FrameCount();
-  int StageID();
-  bool InGame();
+  static GameState* Instance();
 
-  long P2ActionState();
-  int P2JumpsUsed();
-  
-  //TODO: have a function that waits for the next frame in the game
-  int P2Hitstun();
-  float P2VerticalVelocity();
-  int P2Hitlag();
-  float P2ShieldSize();
-  bool P2InAir();
+  int p1_stocks = 0;
+  int p2_stocks = 0;
+  int p1_percent = 0;
+  int p2_percent = 0;
+  int p1_char = 0;
+  int p2_char = 0;
+  float p1_x = 0.0;
+  float p1_y = 0.0;
+  float p2_x = 0.0;
+  float p2_y = 0.0;
+  int stage_id = 0;
+  int frame_count = 0;
+  int p2_action_state = 0;
+  float p2_vert_velocity = 0.0;
+  int p2_in_air = 0;
+  int p2_hitlag_frames = 0;
+  int p2_jumps_used = 0;
+  float p2_shield_size = 0.0;
+  int p2_hitstun_frames = 0;
 
 };
 
 #endif
-
-
-

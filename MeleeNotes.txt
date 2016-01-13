@@ -36,23 +36,23 @@ Note: see SSBM Data Sheet in the public google drive folder
 (8-bit) P1 character select - 0x803F0E0A
 (8-bit) P2 character select - 0x803F0E2E
 
-(32-bit) P1 X coordinate - 0x80453090
-(32-bit) P1 Y coordinate - 0x80453094
+(32-bit float) P1 X coordinate - 0x80453090
+(32-bit float) P1 Y coordinate - 0x80453094
 
-(32-bit) P2 X coordinate - 0x80453F20
-(32-bit) P2 Y coordinate - 0x80453F24
+(32-bit float) P2 X coordinate - 0x80453F20
+(32-bit float) P2 Y coordinate - 0x80453F24
 
 (16-bit) Stage ID - 0x804D6CAD
 (16-bit) Frame Counter - 0x8046B6CC
 
 Following addresses offset from P2 Char Data Pointer
 
-(32-bit) Frames of Hitstun Left - 0x23A0
-(32-bit) Vertical Velocity - 0xF0
+(32-bit float) Frames of Hitstun Left - 0x23A0
+(32-bit float) Vertical Velocity - 0xF0
 (32-bit) Action State - 0x70
-(32-bit) Frames of Hitlag Left - 0x19BC
+(32-bit float) Frames of Hitlag Left - 0x19BC
 (8-bit) Jumps Used - 0x19C8
-(32-bit) Shield Size - 0x19F8
+(32-bit float?) Shield Size - 0x19F8
 (32-bit) Air/Ground - 0x140
 
 Main Game Loop Function Pointer - 0x8006AD10 //runs once per character per frame
