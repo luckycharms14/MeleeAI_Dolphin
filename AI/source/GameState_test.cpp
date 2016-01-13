@@ -14,8 +14,8 @@ int main() {
   GameState* gs_1 = GameState::Instance();
 
   while (1) {
-    std::cout << gs_1->p2_hitstun_frames << std::endl;
-    GLOBAL_SLEEP(100);
+    std::cout << std::hex << gs_1->in_game << std::endl;
+    GLOBAL_SLEEP(50);
   }
 }
 

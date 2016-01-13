@@ -59,6 +59,7 @@ void MemReader::UpdateMemAddress(std::string add, long val) {
     case p2_y: m_game_state->p2_y = LongToFloat(val); break;
     case stage_id: m_game_state->stage_id = val >> 16; break;
     case frame_count: m_game_state->frame_count = val >> 16; break;
+    case in_game: m_game_state->in_game = ((val >> 20) & 0x0F) == 0x0D; break;
     case p2_action_state: m_game_state->p2_action_state = val; break;
     case p2_vert_velocity: m_game_state->p2_vert_velocity = LongToFloat(val); break;
     case p2_in_air: m_game_state->p2_in_air = val; break;

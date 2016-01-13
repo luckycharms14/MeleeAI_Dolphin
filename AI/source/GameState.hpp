@@ -32,9 +32,8 @@ public:
   int p2_jumps_used = 0;
   float p2_shield_size = 0.0;
   int p2_hitstun_frames = 0;
+  bool in_game = false;
   
-  bool InGame();
-
 };
 
 #endif

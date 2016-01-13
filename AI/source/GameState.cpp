@@ -10,8 +10,3 @@ GameState* GameState::Instance() {
   return m_instance;
 }  
 
-bool GameState::InGame() {
-  int last_frame = frame_count;
-  GLOBAL_SLEEP(30); 
-  return last_frame != frame_count;
-}

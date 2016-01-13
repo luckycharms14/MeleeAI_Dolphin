@@ -34,7 +34,8 @@ enum MemoryAddress
   p2_hitlag_frames,
   p2_jumps_used,
   p2_shield_size,
-  p2_hitstun_frames
+  p2_hitstun_frames,
+  in_game
 };
 
 class MemReader {
@@ -54,6 +55,7 @@ private:
     {"80453F24", p2_y},
     {"804D6CAD", stage_id},
     {"8046B6CC", frame_count},
+    {"8065CC14", in_game},
     {"80453FC0 70", p2_action_state},
     {"80453FC0 F0", p2_vert_velocity},
     {"80453FC0 140", p2_in_air},
