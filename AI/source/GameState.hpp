@@ -17,25 +17,25 @@ private:
 
 public:
 	
-  GameState();
+  GameState(){};
 
-  int Stocks(int);
-  int Percent(int);
-  int CharacterID(int);
-  std::pair<float, float> Coordinates(int);
-  int FrameCount();
-  int StageID();
-  bool InGame();
+  int player1Stocks = 0;
+  int player1Percent = 0;
+  // int CharacterID(int);
+  // std::pair<float, float> Coordinates(int);
+  // int FrameCount();
+  // int StageID();
+  // bool InGame();
 
-  long P2ActionState();
-  int P2JumpsUsed();
+  // long P2ActionState();
+  // int P2JumpsUsed();
   
-  //TODO: have a function that waits for the next frame in the game
-  int P2Hitstun();
-  float P2VerticalVelocity();
-  int P2Hitlag();
-  float P2ShieldSize();
-  bool P2InAir();
+  // //TODO: have a function that waits for the next frame in the game
+  // int P2Hitstun();
+  // float P2VerticalVelocity();
+  // int P2Hitlag();
+  // float P2ShieldSize();
+  // bool P2InAir();
 
 };
 
