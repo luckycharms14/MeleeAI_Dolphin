@@ -6,17 +6,21 @@
 DefensiveAI::DefensiveAI() : AI() {
   m_recovery_bot = new RecoveryFox();
   m_ledge_bot = new LedgeBot();
+  m_di_bot = new DIBot();
 }
   
 DefensiveAI::~DefensiveAI() {
   delete m_recovery_bot;
   delete m_ledge_bot;
+  delete m_di_bot;
 }
 
 void DefensiveAI::MakeMove() {
   WaitForTrigger();  
   if (OnLedge()) {
     m_ledge_bot->GetUp();
+  } else if (InHitlag()) {
+    m_di_bot->DI();
   } else if (IsOffStage()) {
     WaitForHitstun();
     try {
@@ -37,5 +41,5 @@ void DefensiveAI::WaitForTrigger() {
 } 
 
 bool DefensiveAI::TriggerEvents() {
-  return IsOffStage() || OnLedge();
+  return IsOffStage() || OnLedge() || InHitstun() || InHitlag();
 } 

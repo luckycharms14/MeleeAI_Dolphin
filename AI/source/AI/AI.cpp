@@ -35,6 +35,10 @@ bool AI::InHitstun() {
   return (m_game_state->p2_in_air && (m_game_state->p2_hitstun_frames > 0));
 }
 
+bool AI::InHitlag() {
+  return m_game_state->p2_hitlag_frames > 0;
+}
+
 double AI::StageLimit() {
   return StageInfo::Limit(m_game_state->stage_id);
 }

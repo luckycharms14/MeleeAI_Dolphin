@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -c -Wall -Wextra -pedantic -std=c++11
 
-OBJECTS = build/MeleeAI.o build/GameState.o build/PipeController.o build/MoveSet.o build/AI.o build/StageInfo.o build/DefensiveAI.o build/RecoveryBot.o build/RecoveryFox.o build/LedgeBot.o build/MemReader.o
+OBJECTS = build/MeleeAI.o build/GameState.o build/PipeController.o build/MoveSet.o build/AI.o build/StageInfo.o build/DefensiveAI.o build/RecoveryBot.o build/RecoveryFox.o build/LedgeBot.o build/MemReader.o build/DIBot.o
 
 BOOST_OBJECTS = $(OBJECTS) build/MemShareController.o
 
@@ -54,6 +54,9 @@ build/LedgeBot.o: source/AI/LedgeBot.cpp
 
 build/MemReader.o: source/MemReader.cpp
 	$(CXX) $(CFLAGS) source/MemReader.cpp -o build/MemReader.o
+
+build/DIBot.o: source/AI/DIBot.cpp
+	$(CXX) $(CFLAGS) source/AI/DIBot.cpp -o build/DIBot.o
 
 clean:
 	rm build/*.o

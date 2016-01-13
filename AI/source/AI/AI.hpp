@@ -24,6 +24,7 @@ public:
   bool CoinFlip(double);
   bool IsOffStage();
   bool InHitstun();
+  bool InHitlag();
   void WaitForHitstun();
   double StageLimit();  
   void WaitAndReact(int);

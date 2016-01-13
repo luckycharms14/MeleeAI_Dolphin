@@ -13,7 +13,8 @@ int main() {
   GameState* game_state = GameState::Instance();
 
   while (1) {
-    while (!game_state->in_game) {GLOBAL_SLEEP(100)}
+  //TODO: check for pause here as well, need to add mem address for that    
+  while (!game_state->in_game) {GLOBAL_SLEEP(100)}
     ai->MakeMove();
   }
 }

@@ -5,6 +5,7 @@
 #define PATH "/home/tom/.dolphin-emu/MemoryWatcher/MemoryWatcher"
 
 std::thread MemReader::Init() {
+  //TODO: can only call this once
   MemReader* mr = new MemReader(GameState::Instance());
   return std::thread([=] {mr->MonitorMemory();});
 } 
