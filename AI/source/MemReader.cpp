@@ -1,8 +1,9 @@
+#include "Global.hpp"
 #include "MemReader.hpp"
 
 #include <iostream>
 
-#define PATH "/home/tom/.dolphin-emu/MemoryWatcher/MemoryWatcher"
+std::string MemReader::memPath = DOLPHIN_PATH + "/MemoryWatcher/MemoryWatcher";
 
 std::thread MemReader::Init() {
   //TODO: can only call this once
@@ -19,8 +20,8 @@ void MemReader::SocketSetup() {
   fd = socket(AF_UNIX, SOCK_DGRAM, 0); //TODO: add error handling
   memset(&addr, 0, sizeof(addr));
   addr.sun_family = AF_UNIX;
-  unlink(PATH);
-  strncpy(addr.sun_path, PATH, sizeof(addr.sun_path) - 1);
+  unlink(memPath.c_str());
+  strncpy(addr.sun_path, memPath.c_str(), sizeof(addr.sun_path) - 1);
   bind(fd, (struct sockaddr*) &addr, sizeof(addr));//TODO: add error handling
 }
 
