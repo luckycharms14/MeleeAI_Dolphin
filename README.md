@@ -18,7 +18,7 @@ Inside the dolphin home folder you must create a FIFO pipe named ```pipe```, a `
 This is done with the following commands:
 
 ```bash
-$ cd dolphin-emu
+$ cd /path/to/dolphin-emu
 $ mkdir Pipes
 $ mkfifo Pipes/pipe
 $ mkdir MemoryWatcher
@@ -28,23 +28,13 @@ $ touch MemoryWatcher/Locations.txt
 An example of addresses that can be used to populate ```Locations.txt``` is given at the top of ```MeleeAI/MeleeNotes.txt```.
 
 Next you must tweak and build the source code.
-Navigate to the source directory at ```MeleeAI/AI/source```
-There are two string (path) variables that need to be changed to match the specifics of your system.
-One is in ```MemReader.cpp```: modify
+Navigate to the source directory at ```MeleeAI/AI/source```.
+There is a string (path) variable that needs to be changed to match the specifics of your system.
+In ```Global.hpp```, modify the ```DOLPHIN_PATH``` variable to match the path of your dolphin home folder:
 
 ```C++
-#define PATH "/home/tom/.dolphin-emu/MemoryWatcher/MemoryWatcher"
+const std::string DOLPHIN_PATH = "/path/to/dolphin-emu";
 ```
-
-with respect to the path of your ```MemoryWatcher/``` directory.
-```MemoryWatcher/Memorywatcher``` is a socket that is used to watch the addresses listed in ```Locations.txt```.
-Next, in ```PipeController.cpp```, modify
-
-```C++
-std::string PipeController::pipePath = "/home/tom/.dolphin-emu/Pipes/pipe";
-```
-
-with respect to the path of your ```Pipes/pipe``` file.
 
 Navigate to the parent directory of the source folder, ```MeleeAI/AI```, and make and run MeleeAI with
 

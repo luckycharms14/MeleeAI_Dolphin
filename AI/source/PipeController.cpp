@@ -1,9 +1,10 @@
+#include "Global.hpp"
 #include "PipeController.hpp"
 
 #include <cmath>
 
 
-std::string PipeController::pipePath = "/home/tom/.dolphin-emu/Pipes/pipe";
+std::string PipeController::pipePath = DOLPHIN_PATH + "/Pipes/pipe";
 
 PipeController::PipeController() {
 
