@@ -60,12 +60,12 @@ void MemReader::UpdateMemAddress(std::string add, long val) {
     case stage_id: m_game_state->stage_id = val >> 16; break;
     case frame_count: m_game_state->frame_count = val >> 16; break;
     case p2_action_state: m_game_state->p2_action_state = val; break;
-    case p2_vert_velocity: m_game_state->p2_vert_velocity = val; break;
-    case p2_in_air: m_game_state->p2_x = val; break;
-    case p2_hitlag_frames: m_game_state->p2_y = val; break;
-    case p2_jumps_used: m_game_state->stage_id = val; break;
-    case p2_shield_size: m_game_state->frame_count = val; break;
-    case p2_hitstun_frames: m_game_state->frame_count = val; break;
+    case p2_vert_velocity: m_game_state->p2_vert_velocity = LongToFloat(val); break;
+    case p2_in_air: m_game_state->p2_in_air = val; break;
+    case p2_hitlag_frames: m_game_state->p2_hitlag_frames = LongToFloat(val); break;
+    case p2_jumps_used: m_game_state->p2_jumps_used = val >> 24; break;
+    case p2_shield_size: m_game_state->p2_shield_size = LongToFloat(val); break;
+    case p2_hitstun_frames: m_game_state->p2_hitstun_frames = LongToFloat(val); break;
     default: printf("invalid address\n"); break; //TODO: add error handling
   }
 }

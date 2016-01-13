@@ -14,7 +14,7 @@ int main() {
   GameState* gs_1 = GameState::Instance();
 
   while (1) {
-    std::cout << gs_1->stage_id << " " << gs_1->frame_count << std::endl;
+    std::cout << gs_1->p2_hitstun_frames << std::endl;
     GLOBAL_SLEEP(100);
   }
 }

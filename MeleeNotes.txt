@@ -12,20 +12,20 @@ Locations.txt:
 80453F24
 804D6CAD
 8046B6CC
-80453130 08 70
-80453130 08 F0
-80453130 08 140
-80453130 08 19BC
-80453130 08 19C8
-80453130 08 19F8
-80453130 08 23A0
+80453FC0 70
+80453FC0 F0
+80453FC0 140
+80453FC0 19BC
+80453FC0 19C8
+80453FC0 19F8
+80453FC0 23A0
 
 -- Memory Addresses --
 
 Note: see SSBM Data Sheet in the public google drive folder
 
 (32-bit) P1 Char Data Pointer - 0x80453130
-(32-bit) P2 Char Data Pointer - P1 Char Data Address + 0x08
+(32-bit) P2 Char Data Pointer - 0x80453FC0
 
 (8-bit) P1 stock count - 0x8045310E
 (8-bit) P2 stock count - 0x80453F9E

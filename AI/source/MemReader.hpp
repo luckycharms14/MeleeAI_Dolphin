@@ -54,13 +54,13 @@ private:
     {"80453F24", p2_y},
     {"804D6CAD", stage_id},
     {"8046B6CC", frame_count},
-    {"80453130 08 70", p2_action_state},
-    {"80453130 08 F0", p2_vert_velocity},
-    {"80453130 08 140", p2_in_air},
-    {"80453130 08 19BC", p2_hitlag_frames},
-    {"80453130 08 19C8", p2_jumps_used},
-    {"80453130 08 19F8", p2_shield_size},
-    {"80453130 08 23A0", p2_hitstun_frames}
+    {"80453FC0 70", p2_action_state},
+    {"80453FC0 F0", p2_vert_velocity},
+    {"80453FC0 140", p2_in_air},
+    {"80453FC0 19BC", p2_hitlag_frames},
+    {"80453FC0 19C8", p2_jumps_used},
+    {"80453FC0 19F8", p2_shield_size},
+    {"80453FC0 23A0", p2_hitstun_frames}
   };
 
   int fd;
