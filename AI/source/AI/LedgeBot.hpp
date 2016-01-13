@@ -10,6 +10,7 @@ private:
 public:
 
   LedgeBot() : AI() {}
+  virtual ~LedgeBot() {}
 
   void GetUp();
 

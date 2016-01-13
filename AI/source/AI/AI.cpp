@@ -7,13 +7,12 @@
 #include <iostream>
 
 AI::AI() {
-  m_game_state = new GameState();
+  m_game_state = GameState::Instance();
   m_move_set = new MoveSet();
   m_generator = new std::default_random_engine;
 }
 
 AI::~AI() {
-  delete m_game_state;
   delete m_move_set;
   delete m_generator;
 }
@@ -33,15 +32,15 @@ bool AI::IsOffStage() {
 }
 
 bool AI::InHitstun() {
-  return (m_game_state->P2InAir() && (m_game_state->P2Hitstun() > 0));
+  return (m_game_state->p2_in_air && (m_game_state->p2_hitstun_frames > 0));
 }
 
 double AI::StageLimit() {
-  return StageInfo::Limit(m_game_state->StageID());
+  return StageInfo::Limit(m_game_state->stage_id);
 }
 
 void AI::WaitForHitstun() {
-  while (m_game_state->P2Hitstun() > 0) {
+  while (m_game_state->p2_hitstun_frames > 0) {
     GLOBAL_SLEEP(17)
   }
 }
@@ -49,7 +48,7 @@ void AI::WaitForHitstun() {
 void AI::WaitAndReact(int frames) {
   int count = 0;
   while (count < frames) {
-    if (m_game_state->P2Hitstun() == 0 && !OnLedge()) {
+    if (m_game_state->p2_hitstun_frames == 0 && !OnLedge()) {
       GLOBAL_SLEEP(17);
       count++;
     } else {
@@ -60,10 +59,10 @@ void AI::WaitAndReact(int frames) {
 }
 
 bool AI::OnLedge() {
-  while (m_game_state->P2ActionState() == 0xFC) {
+  while (m_game_state->p2_action_state == 0xFC) {
     GLOBAL_SLEEP(17);
   }
-  return (m_game_state->P2ActionState() == 0xFD);
+  return (m_game_state->p2_action_state == 0xFD);
 }  
 
 //0 on left side, 1 on right side
@@ -72,11 +71,11 @@ int AI::StageSide() {
 }
 
 double AI::Xcoord() {
-  return m_game_state->Coordinates(2).first;
+  return m_game_state->p2_x;
 }
 
 double AI::Ycoord() {
-  return m_game_state->Coordinates(2).second;
+  return m_game_state->p2_y;
 }
 
 

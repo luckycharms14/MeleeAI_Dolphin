@@ -21,7 +21,6 @@ protected:
 
 public:
 
-
   bool CoinFlip(double);
   bool IsOffStage();
   bool InHitstun();

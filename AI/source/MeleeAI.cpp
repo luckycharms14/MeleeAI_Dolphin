@@ -1,22 +1,22 @@
 #include "Global.hpp"
 #include "GameState.hpp"
 #include "MemReader.hpp"
+#include "AI/AI.hpp"
 #include "AI/DefensiveAI.hpp"
 
 #include <thread>
 
 int main() {
   
-  MemReader* mem_reader = MemReader::Instance();
-  std::thread mr_thread = mem_reader->MemMonitorThread();
+  GameState* game_state = GameState::Instance();
+  MemReader mem_reader = MemReader(game_state);
+  std::thread mr_thread = mem_reader.MemMonitorThread();
+  
+  DefensiveAI* ai = new DefensiveAI();
 
-  DefensiveAI ai = DefensiveAI();  
-  GameState game_state = GameState();
-
-  while(1) {
-    while (!game_state.InGame()) {GLOBAL_SLEEP(100)}
-    ai.MakeMove();
+  while (1) {
+    while (!game_state->InGame()) {GLOBAL_SLEEP(100)}
+    ai->MakeMove();
   }
-
-}    
+}
 

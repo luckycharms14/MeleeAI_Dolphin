@@ -15,7 +15,7 @@ void RecoveryFox::Recover() {
 }
 
 void RecoveryFox::FirefoxRecovery() {
-  if (m_game_state->P2JumpsUsed() < 2) {
+  if (m_game_state->p2_jumps_used < 2) {
     if (abs(Xcoord()) - StageLimit() > 100) {
       m_move_set->HoldStick(180 * StageSide()); 
     }
@@ -116,7 +116,7 @@ int RecoveryFox::CleanAngle(int angle) {
 }
 
 void RecoveryFox::IllusionRecovery() {
-  int jumps_used = m_game_state->P2JumpsUsed();
+  int jumps_used = m_game_state->p2_jumps_used;
   if (Ycoord() < -55 || (Ycoord() < -15 &&  jumps_used > 1)) {
     FirefoxRecovery();
   } else if (abs(Xcoord()) - StageLimit() > 100 && jumps_used < 2) {
@@ -144,9 +144,9 @@ double RecoveryFox::IllusionHeight() {
   if (CoinFlip(0.6)) {
     return -5;
   } else if (CoinFlip(0.5)) {
-    return StageInfo::SidePlatHeight(m_game_state->StageID()) + 3;
+    return StageInfo::SidePlatHeight(m_game_state->stage_id) + 3;
   } else {
-    return Uniform(-5, StageInfo::TopPlatHeight(m_game_state->StageID()));
+    return Uniform(-5, StageInfo::TopPlatHeight(m_game_state->stage_id));
   }
 }
 

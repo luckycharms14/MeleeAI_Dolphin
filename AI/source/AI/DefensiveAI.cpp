@@ -27,7 +27,7 @@ void DefensiveAI::MakeMove() {
 
 void DefensiveAI::WaitForTrigger() {
   while (!TriggerEvents()) {
-    if(m_game_state->P2ActionState() == 0x0D) { //respawning
+    if(m_game_state->p2_action_state == 0x0D) { //respawning
       m_move_set->HoldStick(270); //fast fall, TODO: put in moveset
       WaitAndReact(20);
       m_move_set->ReleaseStick();
