@@ -70,16 +70,16 @@ private:
 
   GameState* m_game_state;
 
+  MemReader(GameState*);
+
   void MonitorMemory();
   void SocketSetup();
   void UpdateMemAddress(std::string,long);
   float LongToFloat(long);
 
 public:
-
-  MemReader(GameState*);
-
-  std::thread MemMonitorThread();
+  
+  static std::thread Init();
 
 };
 

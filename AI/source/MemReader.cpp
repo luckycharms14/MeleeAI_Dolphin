@@ -4,6 +4,11 @@
 
 #define PATH "/home/tom/.dolphin-emu/MemoryWatcher/MemoryWatcher"
 
+std::thread MemReader::Init() {
+  MemReader* mr = new MemReader(GameState::Instance());
+  return std::thread([=] {mr->MonitorMemory();});
+} 
+
 MemReader::MemReader(GameState* gs) {
   m_game_state = gs;
   SocketSetup();
@@ -39,10 +44,6 @@ void MemReader::MonitorMemory() {
     memset(temp,0,sizeof(temp));
     memset(buf,0,sizeof(buf));
   }
-}
-
-std::thread MemReader::MemMonitorThread() {
-  return std::thread([=] {MonitorMemory();});
 }
 
 void MemReader::UpdateMemAddress(std::string add, long val) {

@@ -7,9 +7,7 @@
 
 int main() {
   
-  GameState* game_state = GameState::Instance();
-  MemReader mr_1 = MemReader(game_state);
-  std::thread mem_reader = mr_1.MemMonitorThread();
+  std::thread mem_reader_thread = MemReader::Init();
 
   GameState* gs_1 = GameState::Instance();
 

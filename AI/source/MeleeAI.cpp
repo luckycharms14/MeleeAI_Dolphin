@@ -8,11 +8,9 @@
 
 int main() {
   
-  GameState* game_state = GameState::Instance();
-  MemReader mem_reader = MemReader(game_state);
-  std::thread mr_thread = mem_reader.MemMonitorThread();
-  
+  std::thread mem_reader_thread = MemReader::Init();
   DefensiveAI* ai = new DefensiveAI();
+  GameState* game_state = GameState::Instance();
 
   while (1) {
     while (!game_state->in_game) {GLOBAL_SLEEP(100)}
