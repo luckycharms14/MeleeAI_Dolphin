@@ -49,6 +49,10 @@ void AI::WaitForHitstun() {
   }
 }
 
+bool AI::TechSituation() {
+  return m_game_state->p2_in_air && Ycoord() < 5 && m_game_state->p2_vert_velocity < 0;
+}
+
 void AI::WaitAndReact(int frames) {
   int count = 0;
   while (count < frames) {

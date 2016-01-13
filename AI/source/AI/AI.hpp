@@ -26,6 +26,7 @@ public:
   bool InHitstun();
   bool InHitlag();
   void WaitForHitstun();
+  bool TechSituation();
   double StageLimit();  
   void WaitAndReact(int);
   bool OnLedge();

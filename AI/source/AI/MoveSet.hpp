@@ -20,6 +20,7 @@ public:
   void HoldStick(int);
   void ReleaseStick();
   void LedgeDash(int,int);
+  void HitTech();
   
 };
 

@@ -57,7 +57,7 @@ private:
     {"8046B6CC", frame_count},
     {"8065CC14", in_game},
     {"80453FC0 70", p2_action_state},
-    {"80453FC0 F0", p2_vert_velocity},
+    {"80453FC0 12C", p2_vert_velocity},
     {"80453FC0 140", p2_in_air},
     {"80453FC0 19BC", p2_hitlag_frames},
     {"80453FC0 19C8", p2_jumps_used},

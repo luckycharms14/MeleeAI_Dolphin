@@ -12,7 +12,7 @@ int main() {
   GameState* gs_1 = GameState::Instance();
 
   while (1) {
-    std::cout << std::hex << gs_1->in_game << std::endl;
+    std::cout << std::hex << gs_1->p2_vert_velocity << std::endl;
     GLOBAL_SLEEP(50);
   }
 }

@@ -15,9 +15,9 @@ MoveSet::~MoveSet() {
 
 void MoveSet::UpB() {
   m_controller->Stick(1,90);
-  GLOBAL_SLEEP(17);
+  GLOBAL_SLEEP(17)
   m_controller->Press('B');
-  GLOBAL_SLEEP(2*17);
+  GLOBAL_SLEEP(2*17)
   m_controller->Release('B');
   m_controller->Stick(0,0);
 }    
@@ -29,14 +29,14 @@ void MoveSet::SideB(char dir) {
     m_controller->Stick(1,180);          
   }
   m_controller->Press('B');
-  GLOBAL_SLEEP(3*17);
+  GLOBAL_SLEEP(3*17)
   m_controller->Release('B');
   m_controller->Stick(0,0);
 }
 
 void MoveSet::DoubleJump() {
   m_controller->Press('X');
-  GLOBAL_SLEEP(3*17);
+  GLOBAL_SLEEP(3*17)
   m_controller->Release('X');
 }   
 
@@ -50,20 +50,24 @@ void MoveSet::ReleaseStick() {
 
 void MoveSet::LedgeDash(int id, int deg) {
   m_controller->Stick(1,270);
-  GLOBAL_SLEEP(2*17);
+  GLOBAL_SLEEP(2*17)
   m_controller->Stick(0,0);
   m_controller->Press('X');
-  GLOBAL_SLEEP(2*17);
+  GLOBAL_SLEEP(2*17)
   m_controller->Release('X');
-  GLOBAL_SLEEP(3*17);
+  GLOBAL_SLEEP(3*17)
   m_controller->Stick(1,deg);
   m_controller->Press('L');
-  GLOBAL_SLEEP(2*17);
+  GLOBAL_SLEEP(2*17)
   m_controller->Stick(0,0);
   m_controller->Release('L');
 }
   
-
+void MoveSet::HitTech() {
+  m_controller->Press('L');
+  GLOBAL_SLEEP(2*17)
+  m_controller->Release('L');
+}
 
 
 

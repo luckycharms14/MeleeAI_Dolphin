@@ -7,12 +7,14 @@ DefensiveAI::DefensiveAI() : AI() {
   m_recovery_bot = new RecoveryFox();
   m_ledge_bot = new LedgeBot();
   m_di_bot = new DIBot();
+  m_tech_bot = new TechBot();
 }
   
 DefensiveAI::~DefensiveAI() {
   delete m_recovery_bot;
   delete m_ledge_bot;
   delete m_di_bot;
+  delete m_tech_bot;
 }
 
 void DefensiveAI::MakeMove() {
@@ -26,6 +28,8 @@ void DefensiveAI::MakeMove() {
     try {
       m_recovery_bot->Recover();
     } catch (ActionInterruptedException e) {}
+  } else if (TechSituation()) {
+    m_tech_bot->Tech();
   }
 }
 
