@@ -28,23 +28,15 @@ $ touch MemoryWatcher/Locations.txt
 An example of addresses that can be used to populate ```Locations.txt``` is given at the top of ```MeleeAI/MeleeNotes.txt```.
 
 Next you must tweak and build the source code.
-Navigate to the source directory at ```MeleeAI/AI/source```
-There are two string (path) variables that need to be changed to match the specifics of your system.
-One is in ```MemReader.cpp```: modify
+Navigate to the source directory at ```MeleeAI/AI/source```.
+There is a string (path) variable that needs to be changed to match the specifics of your system.
+In ```Global.hpp```, modify
 
 ```C++
-#define PATH "/home/tom/.dolphin-emu/MemoryWatcher/MemoryWatcher"
+const std::string DOLPHIN_PATH = "/home/tom/.dolphin-emu";
 ```
 
-with respect to the path of your ```MemoryWatcher/``` directory.
-```MemoryWatcher/Memorywatcher``` is a socket that is used to watch the addresses listed in ```Locations.txt```.
-Next, in ```PipeController.cpp```, modify
-
-```C++
-std::string PipeController::pipePath = "/home/tom/.dolphin-emu/Pipes/pipe";
-```
-
-with respect to the path of your ```Pipes/pipe``` file.
+to match the path of your dophin home folder.
 
 Navigate to the parent directory of the source folder, ```MeleeAI/AI```, and make and run MeleeAI with
 
