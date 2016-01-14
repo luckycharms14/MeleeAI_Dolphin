@@ -44,6 +44,7 @@ $ cp /path/to/MeleeAI/pipe.ini Profiles/GCPad/
 ```
 
 Open Dolphin (restart Dolphin if it is already open) and do the following to prepare Dolphin for MeleeAI outputs:
+
 1. Click on the 'Controllers' menu icon in the top right.
 2. Under 'GameCube Controllers', click the drop-down menu next to 'Port 2' and select 'Standard Controller'.
 Then click 'Configure' to the right.
