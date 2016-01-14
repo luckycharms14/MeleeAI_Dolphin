@@ -8,10 +8,12 @@ private:
   GameState() {}
 
   static GameState* m_instance;
+  static void WaitFrame();
 
 public:
 
   static GameState* Instance();
+  static void WaitFrames(int);
 
   int p1_stocks = 0;
   int p2_stocks = 0;

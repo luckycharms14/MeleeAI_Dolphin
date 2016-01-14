@@ -40,7 +40,7 @@ void DefensiveAI::WaitForTrigger() {
       WaitAndReact(20);
       m_move_set->ReleaseStick();
     }
-    GLOBAL_SLEEP(17)
+    GLOBAL_WAIT_FRAMES(1)
   }
 } 
 

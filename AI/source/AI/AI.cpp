@@ -45,7 +45,7 @@ double AI::StageLimit() {
 
 void AI::WaitForHitstun() {
   while (m_game_state->p2_hitstun_frames > 0) {
-    GLOBAL_SLEEP(17)
+    GLOBAL_WAIT_FRAMES(1)
   }
 }
 
@@ -56,8 +56,8 @@ bool AI::TechSituation() {
 void AI::WaitAndReact(int frames) {
   int count = 0;
   while (count < frames) {
-    if (m_game_state->p2_hitstun_frames == 0 && !OnLedge()) {
-      GLOBAL_SLEEP(17);
+    if (!InHitstun() && !OnLedge() && !InHitlag()) {
+      GLOBAL_WAIT_FRAMES(1)
       count++;
     } else {
       m_move_set->ReleaseStick();
@@ -68,7 +68,7 @@ void AI::WaitAndReact(int frames) {
 
 bool AI::OnLedge() {
   while (m_game_state->p2_action_state == 0xFC) {
-    GLOBAL_SLEEP(17);
+    GLOBAL_WAIT_FRAMES(1)
   }
   return (m_game_state->p2_action_state == 0xFD);
 }  

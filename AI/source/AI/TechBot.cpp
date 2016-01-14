@@ -16,6 +16,6 @@ void TechBot::Tech() {
 
 void TechBot::WaitForGround() {
   while (m_game_state->p2_in_air && !IsOffStage()) {
-    GLOBAL_SLEEP(17)
+    GLOBAL_WAIT_FRAMES(1)
   }
 }
