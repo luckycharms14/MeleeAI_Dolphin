@@ -49,7 +49,7 @@ Open Dolphin (restart Dolphin if it is already open) and do the following to pre
 Then click 'Configure' to the right.
 3. In the top left corner click the 'Device' drop-down menu.
 There should be an option to select 'Pipe/0/pipe' (possibly named 'Pipe/1/pipe').
-If there is no such device, go back to [Setup the Dolphin home folder](#Setup-the-Dolphin-home-folder) and make sure that you have created the `pipe` file in the correct location.
+If there is no such device, go back to [Setup the Dolphin home folder](#setup-the-dolphin-home-folder) and make sure that you have created the `pipe` file in the correct location.
 4. Having selected the device, click the 'Profile' drop-down menu to the right.
 There should be an option to select 'pipe' -- if not, return to the steps above and ensure that `pipe.ini` has been copied to the correct location.
 Select 'pipe' and click 'Load' to the right.
@@ -66,7 +66,7 @@ In `Global.hpp`, modify the `DOLPHIN_PATH` variable to match the path of your do
 ```C++
 const std::string DOLPHIN_PATH = "/path/to/dolphin-emu";
 ```
-(Note: If your path contains a space, [as with the OS X example above](#Setup-the-Dolphin-home-folder), you will need to escape it with `\\`, e.g., 
+(Note: If your path contains a space, [as with the OS X example above](#setup-the-dolphin-home-folder), you will need to escape it with `\\`, e.g., 
 ```C++
 const std::string DOLPHIN_PATH = /Users/username/Library/Application\\ Support/Dolphin";
 ```
