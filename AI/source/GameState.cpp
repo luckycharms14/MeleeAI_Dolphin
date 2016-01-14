@@ -3,7 +3,7 @@
 
 #include <chrono>
 #include <thread>
-#define GLOBAL_SLEEP(x) std::this_thread::sleep_for(std::chrono::milliseconds(x));
+
 GameState* GameState::m_instance = nullptr;
 
 GameState* GameState::Instance() {
