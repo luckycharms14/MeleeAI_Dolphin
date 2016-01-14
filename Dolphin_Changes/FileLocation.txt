@@ -1,7 +1,0 @@
-dolphin-emu/CMakeLists.txt
-dolphin-emu/Source/Core/Core/PowerPC/MMU.cpp
-dolphin-emu/Source/Core/VideoBackends/OGL/Render.cpp
-dolphin-emu/Source/Core/VideoBackends/OGL/Render.h
-
-
-search for "MeleeAI" in any of those files to find the changes made
