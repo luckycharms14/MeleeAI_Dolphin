@@ -3,8 +3,6 @@ CFLAGS = -c -Wall -Wextra -pedantic -std=c++11
 
 OBJECTS = build/MeleeAI.o build/GameState.o build/PipeController.o build/MoveSet.o build/AI.o build/StageInfo.o build/DefensiveAI.o build/RecoveryBot.o build/RecoveryFox.o build/LedgeBot.o build/MemReader.o build/DIBot.o build/TechBot.o
 
-BOOST_OBJECTS = $(OBJECTS) build/MemShareController.o
-
 GS_TEST_OBJECTS = build/GameState_test.o build/MemReader.o build/GameState.o
 
 MeleeAI: $(OBJECTS)
@@ -14,7 +12,7 @@ GameState_test: $(GS_TEST_OBJECTS)
 	$(CXX) -L /lib32 -pthread $(GS_TEST_OBJECTS) -o GameState_test
 	
 boost_MeleeAI: $(BOOST_OBJECTS)
-	$(CXX) -L /lib32 -pthread $(BOOST_OBJECTS) -lrt -o MeleeAI
+	$(CXX) -L /lib32 -pthread $(BOOST_OBJECTS) -o MeleeAI
 
 build/MeleeAI.o: source/MeleeAI.cpp
 	$(CXX) $(CFLAGS) source/MeleeAI.cpp -o build/MeleeAI.o
@@ -24,9 +22,6 @@ build/GameState_test.o: source/GameState_test.cpp
 
 build/GameState.o: source/GameState.cpp
 	$(CXX) $(CFLAGS) source/GameState.cpp -o build/GameState.o
-
-build/MemShareController.o: source/MemShareController.cpp
-	$(CXX) $(CFLAGS) source/MemShareController.cpp -o build/MemShareController.o
 
 build/PipeController.o: source/PipeController.cpp
 	$(CXX) $(CFLAGS) source/PipeController.cpp -o build/PipeController.o
