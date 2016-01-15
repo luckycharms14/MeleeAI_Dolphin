@@ -39,7 +39,6 @@ enum MemoryAddress
 };
 
 class MemReader {
-
 private:
     static std::string memPath;
     std::map<std::string,int> m_address_index {
