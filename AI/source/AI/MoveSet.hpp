@@ -4,24 +4,20 @@
 #include "../Controller.hpp"
 
 class MoveSet {
-
-private:
-
-  Controller* m_controller;
-    
 public:
+    MoveSet();
+    ~MoveSet();
 
-  MoveSet();
-  ~MoveSet();
-
-  void UpB();
-  void SideB(char);
-  void DoubleJump();
-  void HoldStick(int);
-  void ReleaseStick();
-  void LedgeDash(int,int);
-  void HitTech();
-  
+    void UpB();
+    void SideB(char);
+    void DoubleJump();
+    void HoldStick(int);
+    void ReleaseStick();
+    void LedgeDash(int,int);
+    void HitTech();
+    
+private:
+    Controller* m_controller;
 };
 
 #endif

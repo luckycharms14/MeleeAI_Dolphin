@@ -2,9 +2,7 @@
 #define CHARACTER_INFO_HPP
 
 namespace CharacterInfo {
-
-  int LedgeDashTiming(int);
-
+    int LedgeDashTiming(int);
 }
 
 #endif
