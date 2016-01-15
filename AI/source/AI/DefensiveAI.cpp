@@ -46,4 +46,4 @@ void DefensiveAI::WaitForTrigger() {
 
 bool DefensiveAI::TriggerEvents() {
     return IsOffStage() || OnLedge() || InHitstun() || InHitlag();
-} 
+}

@@ -16,4 +16,3 @@ int main() {
         GLOBAL_SLEEP(50);
     }
 }
-

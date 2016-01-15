@@ -35,7 +35,7 @@ void PipeController::Stick(float rad, int deg, bool CStick) {
 
     x = 0.5 + rad * cos (deg * M_PI / 180) / 2;
     y = 0.5 + rad * sin (deg * M_PI / 180) / 2;
-    
+
     std::string output = "SET ";
     output += (CStick ? "C " : "MAIN ");
     output += std::to_string(x);

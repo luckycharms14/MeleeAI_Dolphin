@@ -35,7 +35,7 @@ public:
     float p2_shield_size = 0.0;
     int p2_hitstun_frames = 0;
     bool in_game = false;
-    
+
 };
 
 #endif
