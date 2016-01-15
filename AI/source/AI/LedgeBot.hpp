@@ -4,11 +4,11 @@
 #include "AI.hpp"
 
 class LedgeBot : public AI {
-    public:
-        LedgeBot() : AI() {}
-        virtual ~LedgeBot() {}
+public:
+    LedgeBot() : AI() {}
+    virtual ~LedgeBot() {}
 
-        void GetUp();
+    void GetUp();
 };
 
 

@@ -4,12 +4,12 @@
 #include "AI.hpp"
 
 class DIBot : AI {
-    private:
-        void WaitForHitlag();
+private:
+    void WaitForHitlag();
 
-    public:
-        DIBot() : AI() {}
-        void DI();
+public:
+    DIBot() : AI() {}
+    void DI();
 };
 
 #endif
