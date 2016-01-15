@@ -7,16 +7,12 @@
 std::string PipeController::pipePath = DOLPHIN_PATH + "/Pipes/pipe";
 
 PipeController::PipeController() {
-
     namedPipe = new std::ofstream();
     namedPipe->open (pipePath);
-
 }
 
 PipeController::~PipeController() {
-
     namedPipe->close();
-
 }
 
 void PipeController::Press(char button) {
@@ -30,7 +26,6 @@ void PipeController::Release(char button) {
 }  
 
 void PipeController::Stick(float rad, int deg, bool CStick) {
-
     float x, y;
 
     x = 0.5 + rad * cos (deg * M_PI / 180) / 2;
@@ -43,5 +38,4 @@ void PipeController::Stick(float rad, int deg, bool CStick) {
     output += std::to_string(y);
 
     *namedPipe << (output + "\n") << std::flush;
-
 }

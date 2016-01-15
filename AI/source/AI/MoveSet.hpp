@@ -4,13 +4,10 @@
 #include "../Controller.hpp"
 
 class MoveSet {
-
     private:
-
         Controller* m_controller;
         
     public:
-
         MoveSet();
         ~MoveSet();
 
@@ -21,7 +18,6 @@ class MoveSet {
         void ReleaseStick();
         void LedgeDash(int,int);
         void HitTech();
-
 };
 
 #endif
