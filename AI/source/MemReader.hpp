@@ -38,7 +38,10 @@ enum MemoryAddress
     in_game
 };
 
-class MemReader {
+class MemReader {   
+public:
+    static std::thread Init();
+    
 private:
     static std::string memPath;
     std::map<std::string,int> m_address_index {
@@ -75,9 +78,6 @@ private:
     void SocketSetup();
     void UpdateMemAddress(std::string,long);
     float LongToFloat(long);
-    
-public:
-    static std::thread Init();
 };
 
 #endif

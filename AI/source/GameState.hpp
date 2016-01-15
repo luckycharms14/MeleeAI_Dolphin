@@ -2,12 +2,6 @@
 #define GAME_STATE_HPP
 
 class GameState {
-private:
-    GameState() {}
-
-    static GameState* m_instance;
-    static void WaitFrame();
-
 public:
     static GameState* Instance();
     static void WaitFrames(int);
@@ -32,6 +26,12 @@ public:
     float p2_shield_size = 0.0;
     int p2_hitstun_frames = 0;
     bool in_game = false;
+
+private:
+    GameState() {}
+
+    static GameState* m_instance;
+    static void WaitFrame();
 };
 
 #endif
