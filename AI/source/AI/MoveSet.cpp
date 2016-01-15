@@ -26,7 +26,7 @@ void MoveSet::SideB(char dir) {
     if (dir == 'R') {
         m_controller->Stick(1,0);
     } else {
-        m_controller->Stick(1,180);          
+        m_controller->Stick(1,180);
     }
     m_controller->Press('B');
     GLOBAL_WAIT_FRAMES(1)

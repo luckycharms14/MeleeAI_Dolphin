@@ -26,10 +26,10 @@ void MemReader::SocketSetup() {
 }
 
 void MemReader::MonitorMemory() {
-  //TODO: can only be called once, include check for that
+    //TODO: can only be called once, include check for that
     char* buf[128];
     char temp[32];
-    char add[24];  
+    char add[24];
     char val[8];
 
     while (1) {
@@ -37,7 +37,7 @@ void MemReader::MonitorMemory() {
         socklen_t addr_len;
 
         recvfrom(fd, buf, sizeof(buf), 0, &remaddr, &addr_len);
-        snprintf(temp,32,"%s",buf); 
+        snprintf(temp,32,"%s",buf);
         strncpy(add, temp, (strchr(temp, '\n') - temp));
         strncpy(val, temp + (strchr(temp, '\n') - temp) + 1,8);
         UpdateMemAddress(std::string(add), strtol(val,NULL,16));
@@ -70,8 +70,8 @@ void MemReader::UpdateMemAddress(std::string add, long val) {
         case p2_jumps_used: m_game_state->p2_jumps_used = val >> 24; break;
         case p2_shield_size: m_game_state->p2_shield_size = LongToFloat(val); break;
         case p2_hitstun_frames: m_game_state->p2_hitstun_frames = LongToFloat(val); break;
-    default: printf("invalid address\n"); break; //TODO: add error handling
-}
+        default: printf("invalid address\n"); break; //TODO: add error handling
+    }
 }
 
 float MemReader::LongToFloat(long n) {
