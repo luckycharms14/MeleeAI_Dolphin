@@ -21,7 +21,7 @@ public:
     void ReleaseStick();
     void LedgeDash(int,int);
     void HitTech();
-    
+
 };
 
 #endif

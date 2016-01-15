@@ -85,6 +85,3 @@ double AI::Xcoord() {
 double AI::Ycoord() {
     return m_game_state->p2_y;
 }
-
-
-

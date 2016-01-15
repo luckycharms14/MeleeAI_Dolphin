@@ -68,9 +68,3 @@ void MoveSet::HitTech() {
     GLOBAL_WAIT_FRAMES(1)
     m_controller->Release('L');
 }
-
-
-
-
-
-
