@@ -3,9 +3,9 @@
 
 namespace StageInfo {
 
-  double Limit(int);
-  double SidePlatHeight(int);
-  double TopPlatHeight(int);
+    double Limit(int);
+    double SidePlatHeight(int);
+    double TopPlatHeight(int);
 
 }
 

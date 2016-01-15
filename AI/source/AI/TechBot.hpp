@@ -7,13 +7,13 @@ class TechBot : public AI {
 
 private:
 
-  void WaitForGround();
+    void WaitForGround();
 
 public:
 
-  TechBot() : AI() {}
+    TechBot() : AI() {}
 
-  void Tech();
+    void Tech();
 
 };
 

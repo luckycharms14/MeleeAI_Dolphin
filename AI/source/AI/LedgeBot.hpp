@@ -9,10 +9,10 @@ private:
 
 public:
 
-  LedgeBot() : AI() {}
-  virtual ~LedgeBot() {}
+    LedgeBot() : AI() {}
+    virtual ~LedgeBot() {}
 
-  void GetUp();
+    void GetUp();
 
 };
 

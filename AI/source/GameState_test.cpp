@@ -6,15 +6,15 @@
 #include <iostream>
 
 int main() {
-  
-  std::thread mem_reader_thread = MemReader::Init();
+    
+    std::thread mem_reader_thread = MemReader::Init();
 
-  GameState* gs_1 = GameState::Instance();
+    GameState* gs_1 = GameState::Instance();
 
-  while (1) {
-    std::cout << std::hex << gs_1->p2_vert_velocity << std::endl;
-    GLOBAL_SLEEP(100);
-  }
+    while (1) {
+        std::cout << std::hex << gs_1->p2_vert_velocity << std::endl;
+        GLOBAL_SLEEP(100);
+    }
 }
 
 /*

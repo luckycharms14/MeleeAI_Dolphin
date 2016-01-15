@@ -3,7 +3,7 @@
 
 namespace CharacterInfo {
 
-  int LedgeDashTiming(int);
+    int LedgeDashTiming(int);
 
 }
 

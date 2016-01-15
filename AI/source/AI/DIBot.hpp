@@ -7,13 +7,13 @@ class DIBot : AI {
 
 private:
 
-  void WaitForHitlag();
+    void WaitForHitlag();
 
 public:
-  
-  DIBot() : AI() {}
+    
+    DIBot() : AI() {}
 
-  void DI();
+    void DI();
 
 };
 
