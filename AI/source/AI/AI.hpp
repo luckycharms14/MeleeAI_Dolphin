@@ -11,8 +11,6 @@ class ActionInterruptedException : public std::exception {};
 
 class AI {
 
-    private:
-
     protected:
 
         MoveSet* m_move_set;

@@ -5,8 +5,6 @@
 
 class LedgeBot : public AI {
 
-    private:
-
     public:
 
         LedgeBot() : AI() {}
