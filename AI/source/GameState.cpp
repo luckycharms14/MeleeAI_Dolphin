@@ -1,9 +1,6 @@
 #include "Global.hpp"
 #include "GameState.hpp"
 
-#include <chrono>
-#include <thread>
-
 GameState* GameState::m_instance = nullptr;
 
 GameState* GameState::Instance() {
@@ -23,6 +20,6 @@ void GameState::WaitFrame() {
     GameState* gs = GameState::Instance();
     int cur_frame = gs->frame_count;
     while (cur_frame == gs->frame_count) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(4));
+        GLOBAL_SLEEP(4)
     }
 }
