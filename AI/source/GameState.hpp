@@ -2,16 +2,13 @@
 #define GAME_STATE_HPP
 
 class GameState {
-
     private:
-
         GameState() {}
 
         static GameState* m_instance;
         static void WaitFrame();
 
     public:
-
         static GameState* Instance();
         static void WaitFrames(int);
 

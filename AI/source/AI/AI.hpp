@@ -10,15 +10,12 @@
 class ActionInterruptedException : public std::exception {};
 
 class AI {
-
     protected:
-
         MoveSet* m_move_set;
         GameState* m_game_state;
         std::default_random_engine* m_generator;
 
     public:
-
         bool CoinFlip(double);
         bool IsOffStage();
         bool InHitstun();

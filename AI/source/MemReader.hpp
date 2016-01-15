@@ -41,7 +41,6 @@ enum MemoryAddress
 class MemReader {
 
 private:
-
     static std::string memPath;
     std::map<std::string,int> m_address_index {
         {"8045310E", p1_stocks},
@@ -77,11 +76,9 @@ private:
     void SocketSetup();
     void UpdateMemAddress(std::string,long);
     float LongToFloat(long);
-
-public:
     
+public:
     static std::thread Init();
-
 };
 
 #endif

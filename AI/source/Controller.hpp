@@ -2,9 +2,7 @@
 #define CONTROLLER_HPP
 
 class Controller {
-
     public:
-
         virtual ~Controller(){}
 
         virtual void Press(char) = 0;
@@ -15,7 +13,6 @@ class Controller {
             3rd arg, true for c-stick, false for control stick
         */
         virtual void Stick(float,int,bool=false) = 0;
-
 };
 
 #endif

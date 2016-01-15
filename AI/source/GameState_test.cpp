@@ -6,9 +6,7 @@
 #include <iostream>
 
 int main() {
-    
     std::thread mem_reader_thread = MemReader::Init();
-
     GameState* gs_1 = GameState::Instance();
 
     while (1) {

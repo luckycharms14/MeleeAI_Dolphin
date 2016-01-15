@@ -9,23 +9,19 @@
 #include "DIBot.hpp"
 
 class DefensiveAI : public AI {
-
     private:
-
         RecoveryBot* m_recovery_bot;
         LedgeBot* m_ledge_bot;
         DIBot* m_di_bot;
         TechBot* m_tech_bot;
 
     public:
-
         DefensiveAI();
         ~DefensiveAI();
 
         void MakeMove();
         void WaitForTrigger();
         bool TriggerEvents();
-
 };
 
 #endif
