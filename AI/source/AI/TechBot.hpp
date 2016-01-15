@@ -4,17 +4,12 @@
 #include "AI.hpp"
 
 class TechBot : public AI {
+public:
+    TechBot() : AI() {}
+    void Tech();
 
 private:
-
-  void WaitForGround();
-
-public:
-
-  TechBot() : AI() {}
-
-  void Tech();
-
+    void WaitForGround();
 };
 
 #endif
