@@ -17,9 +17,10 @@ void GameState::WaitFrames(int n) {
 }
 
 void GameState::WaitFrame() {
-    GameState* gs = GameState::Instance(); 
+    GameState* gs = GameState::Instance();
     int cur_frame = gs->frame_count;
-    while (cur_frame == gs->frame_count) { 
+
+    while (cur_frame == gs->frame_count) {
         GLOBAL_SLEEP(4)
     }
 }

@@ -5,15 +5,15 @@
 
 class DIBot : AI {
 
-private:
+    private:
 
-    void WaitForHitlag();
+        void WaitForHitlag();
 
-public:
-    
-    DIBot() : AI() {}
+    public:
+        
+        DIBot() : AI() {}
 
-    void DI();
+        void DI();
 
 };
 

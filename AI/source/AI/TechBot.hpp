@@ -5,15 +5,15 @@
 
 class TechBot : public AI {
 
-private:
+    private:
 
-    void WaitForGround();
+        void WaitForGround();
 
-public:
+    public:
 
-    TechBot() : AI() {}
+        TechBot() : AI() {}
 
-    void Tech();
+        void Tech();
 
 };
 

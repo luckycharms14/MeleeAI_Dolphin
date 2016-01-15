@@ -43,7 +43,7 @@ class MemReader {
 private:
 
     static std::string memPath;
-    std::map<std::string,int> m_address_index { 
+    std::map<std::string,int> m_address_index {
         {"8045310E", p1_stocks},
         {"80453F9E", p2_stocks},
         {"804530E0", p1_percent},
@@ -67,7 +67,7 @@ private:
     };
 
     int fd;
-    struct sockaddr_un addr; 
+    struct sockaddr_un addr;
 
     GameState* m_game_state;
 

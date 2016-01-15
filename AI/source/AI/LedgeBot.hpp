@@ -5,14 +5,14 @@
 
 class LedgeBot : public AI {
 
-private:
+    private:
 
-public:
+    public:
 
-    LedgeBot() : AI() {}
-    virtual ~LedgeBot() {}
+        LedgeBot() : AI() {}
+        virtual ~LedgeBot() {}
 
-    void GetUp();
+        void GetUp();
 
 };
 
