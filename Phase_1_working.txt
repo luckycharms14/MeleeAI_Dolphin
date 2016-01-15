@@ -1,0 +1,54 @@
+-- Phase 1 --
+
+I think that organization is going to be extremely important going forward, without it I think our productivity will be severly hindered. We have a large team of 25 people (much less are active) that could potentially help, and in order to allow everyone to contribute we need to have good communication and distribution of work. I would like to organize the project in phases in which we outline both high and low level goals, with an end result in mind. That way we can split up the work and track progress.
+
+Note: this is just a working document, please feel free to contribute. And right now i don't feel like doing anything other than a text file, but the finalized phase 1 could be better formatted.
+
+Once this document is finalized we will move the goals to github's issue tracking system for better management.
+
+These are my thought so far on Phase 1.
+
+End goal: release a library for the I/O layer on both windows and linux (and mac).
+
+High Priority Goals (must be done before end goal):
+
+-Change over to an event based system
+  -TBD (we need to layout what we want from this goal)
+
+-Testing
+  -be able to diagnose which end problem is on (Dolphn or MeleeAI)
+  -test specific functions in Controller and MemReader
+  -design dummy input system
+  -design dummy output receiver (?) may not be worth the time
+
+-Documentation
+  -Detailed install guide
+  -Common problem fixes
+  -Description in each header
+  -git development structure
+  -big picture AI structure
+  -slack guidelines
+  -comprehensive list of bugs
+
+-Windows Port
+  -Tests
+    -need to have tests in place to give the devs an easier time testing their work
+  -Input
+    -port the controller input through named pipes
+  -Output
+    -find a windows solution for reading from a socket (pipes again?)
+
+Other Goals (i.e. good things to work on, that won't become obselete from a high priority goal):
+
+-Recovery
+  -Add more characters' recovery
+  -Improve existing ones
+
+-Teching/DI
+
+-Extras (not bugs, but not big enough to be goals) 
+
+
+
+
+ 
