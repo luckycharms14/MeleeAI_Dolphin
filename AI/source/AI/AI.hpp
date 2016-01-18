@@ -25,7 +25,7 @@ public:
     double Ycoord();
     double Uniform(double,double);
 
-    AI();
+    AI(Controller*);
     ~AI();
     
 protected:

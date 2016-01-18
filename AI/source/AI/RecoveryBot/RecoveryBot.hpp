@@ -9,7 +9,7 @@ private:
 
 public:
 
-  RecoveryBot() : AI() {}
+  RecoveryBot(Controller* controller) : AI(controller) {}
   virtual ~RecoveryBot() {}
   
   virtual void Recover() = 0;

@@ -1,6 +1,7 @@
 #include "Global.hpp"
 #include "GameState.hpp"
 #include "MemReader.hpp"
+#include "PipeController.hpp"
 #include "AI/AI.hpp"
 #include "AI/DefensiveAI.hpp"
 
@@ -8,7 +9,8 @@
 
 int main() {
     std::thread mem_reader_thread = MemReader::Init();
-    DefensiveAI* ai = new DefensiveAI();
+    PipeController* controller = new PipeController();
+    DefensiveAI* ai = new DefensiveAI(controller);
     GameState* game_state = GameState::Instance();
     
     while (1) {

@@ -5,7 +5,7 @@
 
 class LedgeBot : public AI {
 public:
-    LedgeBot() : AI() {}
+    LedgeBot(Controller* controller) : AI(controller) {}
     virtual ~LedgeBot() {}
 
     void GetUp();

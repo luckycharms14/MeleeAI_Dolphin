@@ -6,9 +6,9 @@
 #include <cmath>
 #include <iostream>
 
-AI::AI() {
+AI::AI(Controller* controller) {
     m_game_state = GameState::Instance();
-    m_move_set = new MoveSet();
+    m_move_set = new MoveSet(controller);
     m_generator = new std::default_random_engine;
 }
 

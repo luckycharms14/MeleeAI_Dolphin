@@ -10,7 +10,7 @@
 
 class DefensiveAI : public AI {
 public:
-    DefensiveAI();
+    DefensiveAI(Controller*);
     ~DefensiveAI();
 
     void MakeMove();

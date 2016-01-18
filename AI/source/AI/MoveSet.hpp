@@ -5,7 +5,7 @@
 
 class MoveSet {
 public:
-    MoveSet();
+    MoveSet(Controller*);
     ~MoveSet();
 
     void UpB();
