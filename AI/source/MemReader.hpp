@@ -40,7 +40,7 @@ enum MemoryAddress
 
 class MemReader {   
 public:
-    static std::thread Init();
+    static std::thread Init(std::string);
     
 private:
     static std::string memPath;

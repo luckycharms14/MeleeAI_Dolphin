@@ -8,7 +8,7 @@
 
 class PipeController : public Controller {
 public:
-    PipeController();
+    PipeController(std::string);
     ~PipeController();
     void Press(char);
     void Release(char);
