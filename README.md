@@ -77,7 +77,11 @@ $ ./MeleeAI /path/to/dolphin-emu
 
 (Note: If your path contains a space, [as with the OS X example above](#setup-the-dolphin-home-folder), you will need to escape it before handing it to MeleeAI, e.g.,
 ```bash
-$ ./MeleeAI "/Users/username/Library/Application\ Support/Dolphin"
+$ ./MeleeAI /Users/username/Library/Application\ Support/Dolphin
+```
+or, particularly if there are several spaces or other ambiguous characters,
+```bash
+$ ./MeleeAI "/Users/username/Library/Application Support/Dolphin"
 ```
 )
 
