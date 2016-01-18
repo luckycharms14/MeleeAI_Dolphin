@@ -3,11 +3,11 @@
 
 #include <iostream>
 
-DefensiveAI::DefensiveAI() : AI() {
-    m_recovery_bot = new RecoveryFox();
-    m_ledge_bot = new LedgeBot();
-    m_di_bot = new DIBot();
-    m_tech_bot = new TechBot();
+DefensiveAI::DefensiveAI(Controller* controller) : AI(controller) {
+    m_recovery_bot = new RecoveryFox(controller);
+    m_ledge_bot = new LedgeBot(controller);
+    m_di_bot = new DIBot(controller);
+    m_tech_bot = new TechBot(controller);
 }
 
 DefensiveAI::~DefensiveAI() {

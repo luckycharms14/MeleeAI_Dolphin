@@ -9,7 +9,7 @@ private:
 
 public:
 
-  RecoveryFox() : RecoveryBot() {}
+  RecoveryFox(Controller* controller) : RecoveryBot(controller) {}
  
   void Recover();
 

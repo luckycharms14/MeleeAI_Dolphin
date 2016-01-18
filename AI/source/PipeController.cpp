@@ -3,10 +3,10 @@
 
 #include <cmath>
 
+std::string PipeController::pipePath = "";
 
-std::string PipeController::pipePath = DOLPHIN_PATH + "/Pipes/pipe";
-
-PipeController::PipeController() {
+PipeController::PipeController(std::string path) {
+    pipePath = path + "/Pipes/pipe";
     namedPipe = new std::ofstream();
     namedPipe->open (pipePath);
 }

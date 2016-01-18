@@ -5,7 +5,7 @@
 
 class DIBot : AI {
 public:
-    DIBot() : AI() {}
+    DIBot(Controller* controller) : AI(controller) {}
     void DI();
 
 private:

@@ -5,7 +5,7 @@
 
 class TechBot : public AI {
 public:
-    TechBot() : AI() {}
+    TechBot(Controller* controller) : AI(controller) {}
     void Tech();
 
 private:

@@ -3,9 +3,10 @@
 
 #include <iostream>
 
-std::string MemReader::memPath = DOLPHIN_PATH + "/MemoryWatcher/MemoryWatcher";
+std::string MemReader::memPath = "";
 
-std::thread MemReader::Init() {
+std::thread MemReader::Init(std::string path) {
+    memPath = path + "/MemoryWatcher/MemoryWatcher";
     //TODO: can only call this once
     MemReader* mr = new MemReader(GameState::Instance());
     return std::thread([=] {mr->MonitorMemory();});

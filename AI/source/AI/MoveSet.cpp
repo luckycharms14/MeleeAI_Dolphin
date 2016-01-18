@@ -5,10 +5,10 @@
 
 //TODO: Have moves return the number of frames they waited
 
-MoveSet::MoveSet() {
-    m_controller = new PipeController();
+MoveSet::MoveSet(Controller* controller) {
+    m_controller = controller;
 }
-
+ 
 MoveSet::~MoveSet() {
     delete m_controller;
 }
