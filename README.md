@@ -3,7 +3,7 @@
 ## Installation
 
 This series of steps will guide you in installing MeleeAI from the terminal.
-MeleeAI is currently functional on Linux and OS X platforms.
+MeleeAI is currently functional on Linux and OS X platforms with [Dolphin](https://dolphin-emu.org) version 4.0-8510 or later.
 
 To begin, download a copy of the MeleeAI repository:
 
@@ -20,6 +20,7 @@ Possible locations of this folder on Linux include the `$HOME` directory or `$HO
 Inside the dolphin home folder you must create a FIFO pipe named `pipe`, a `Locations.txt` that contains a list of line-separated memory addresses that MemoryWatcher will watch, and the folders that contain them, respectively.
 An example `Locations.txt` that MeleeAI is designed to function with is available in the MeleeAI repository.
 This setup can be completed with the following commands:
+
 
 ```bash
 $ cd /path/to/dolphin-emu
@@ -52,40 +53,33 @@ Then click 'Configure' to the right.
 There should be an option to select 'Pipe/0/pipe' (possibly named 'Pipe/1/pipe').
 If there is no such device, go back to [Setup the Dolphin home folder](#setup-the-dolphin-home-folder) and make sure that you have created the `pipe` file in the correct location.
 4. Having selected the device, click the 'Profile' drop-down menu to the right.
-There should be an option to select 'pipe' -- if not, return to the steps above and ensure that `pipe.ini` has been copied to the correct location.
+There should be an option to select 'pipe' — if not, return to the steps above and ensure that `pipe.ini` has been copied to the correct location.
 Select 'pipe' and click 'Load' to the right.
 5. In the bottom right, under 'Options', click the box next to 'Background Input'.
 Then click 'OK' to exit the configure menu and 'OK' again to exit the controllers menu.
 
 ### Build and Run MeleeAI
 
-Finally, you must tweak and build the MeleeAI source code.
-Navigate to the source directory at `MeleeAI/AI/source`.
-There is a string (path) variable that needs to be changed to match the specifics of your system.
-In `Global.hpp`, modify the `DOLPHIN_PATH` variable to match the path of your dolphin home folder:
-
-```C++
-const std::string DOLPHIN_PATH = "/path/to/dolphin-emu";
-```
-(Note: If your path contains a space, [as with the OS X example above](#setup-the-dolphin-home-folder), you will need to escape it with `\\`, e.g., 
-```C++
-const std::string DOLPHIN_PATH = /Users/username/Library/Application\\ Support/Dolphin";
-```
-)
-
-Navigate to the parent directory of the source folder, `MeleeAI/AI`, and make and run MeleeAI with
+Finally, you must build and run MeleeAI.
+Navigate to the `MeleeAI/AI` and run the following commands:
 
 ```bash
 $ mkdir build
 $ make
 ```
 
-Inside Dolphin, load up melee.
-When on the character select screen, run MeleeAI:
+Inside Dolphin, load up Melee.
+When on the character select screen, run MeleeAI and provide it with the path to your dolphin home folder:
 
 ```bash
-$ ./MeleeAI
+$ ./MeleeAI /path/to/dolphin-emu
 ```
+
+(Note: If your path contains a space, [as with the OS X example above](#setup-the-dolphin-home-folder), you will need to escape it before handing it to MeleeAI, e.g.,
+```bash
+$ ./MeleeAI "/Users/username/Library/Application\ Support/Dolphin"
+```
+)
 
 Choose your character, select Fox for Player 2 and select a stage.
 If MeleeAI is working, when Fox is knocked off the stage, he will attempt to recover intelligently.
