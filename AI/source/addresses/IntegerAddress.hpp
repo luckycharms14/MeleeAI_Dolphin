@@ -8,7 +8,7 @@ public:
 
     IntegerAddress(std::string n, std::string a, int s = 0, int m = 0xFFFFFFFF): Address(n,a), shift(s), mask(m) {}
 
-    int ParseBytes(char);
+    int ParseBytes(long);
     int shift;
     int mask;
 };
