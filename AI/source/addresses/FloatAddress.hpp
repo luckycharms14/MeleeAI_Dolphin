@@ -8,7 +8,7 @@ public:
 
     FloatAddress(std::string n, std::string a): Address(n,a){}
 
-    int ParseBytes(long);
+    float ParseBytes(long);
 };
 
 #endif

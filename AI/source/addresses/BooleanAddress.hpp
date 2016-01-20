@@ -8,7 +8,7 @@ public:
 
     IntegerAddress(std::string n, std::string a, int cv, int s = 0, int m = 0xFFFFFFFF): Address(n,a), compareValue(cv), shift(s), mask(m) {}
 
-    int ParseBytes(long);
+    bool ParseBytes(long);
     int compareValue;
     int shift;
     int mask;
