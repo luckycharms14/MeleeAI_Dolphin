@@ -4,19 +4,21 @@
 #include <map>
 #include <string>
 #include <vector>
-#include <MemoryValue.hpp>
+#include "IntegerAddress.hpp"
+#include "FloatAddress.hpp"
+#include "BooleanAddress.hpp"
 
 class AddressManager {
 public:
     AddressManager(){}
 
-    void add(IntegerValue memValue);
-    void add(FloatValue memValue);
-    void add(BooleanValue memValue);
+    void add(IntegerAddress);
+    void add(FloatAddress);
+    void add(BooleanAddress);
 
-    std::map<std::string,std::vector<IntegerValue>> integerMap;
-    std::map<std::string,std::vector<FloatValue>> floatMap;
-    std::map<std::string,std::vector<BooleanValue>> booleanMap;
+    std::map<std::string,std::vector<IntegerAddress>> integerMap;
+    std::map<std::string,std::vector<FloatAddress>> floatMap;
+    std::map<std::string,std::vector<BooleanAddress>> booleanMap;
 };
 
 #endif

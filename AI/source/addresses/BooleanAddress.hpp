@@ -1,12 +1,13 @@
-#ifndef INTEGERADDRESS_HPP
-#define INTEGERADDRESS_HPP
+#ifndef BOOLEANADDRESS_HPP
+#define BOOLEANADDRESS_HPP
 
 #include "Address.hpp"
+#include <string>
 
-class IntegerAddress : public Address{
+class BooleanAddress : public Address{
 public:
 
-    IntegerAddress(std::string n, std::string a, int cv, int s = 0, int m = 0xFFFFFFFF): Address(n,a), compareValue(cv), shift(s), mask(m) {}
+    BooleanAddress(std::string n, std::string a, int cv, int s = 0, int m = 0xFFFFFFFF): Address(n,a), compareValue(cv), shift(s), mask(m) {}
 
     bool ParseBytes(long);
     int compareValue;

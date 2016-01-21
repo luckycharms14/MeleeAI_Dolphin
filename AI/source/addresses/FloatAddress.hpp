@@ -2,6 +2,7 @@
 #define FLOATADDRESS_HPP
 
 #include "Address.hpp"
+#include <string>
 
 class FloatAddress : public Address{
 public:

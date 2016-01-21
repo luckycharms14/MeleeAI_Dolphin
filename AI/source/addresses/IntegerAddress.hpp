@@ -2,6 +2,7 @@
 #define INTEGERADDRESS_HPP
 
 #include "Address.hpp"
+#include <string>
 
 class IntegerAddress : public Address{
 public:
