@@ -4,6 +4,8 @@
 #include "Address.hpp"
 #include <string>
 
+namespace io {
+
 class BooleanAddress : public Address{
 public:
 
@@ -15,4 +17,5 @@ public:
     int mask;
 };
 
+}
 #endif

@@ -4,6 +4,8 @@
 #include "Address.hpp"
 #include <string>
 
+namespace io {
+
 class IntegerAddress : public Address{
 public:
 
@@ -14,4 +16,5 @@ public:
     int mask;
 };
 
+}
 #endif

@@ -3,18 +3,16 @@
 
 #include "GameState.hpp"
 
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <poll.h>
+#include <string>
+#include <functional>
 
+namespace io {
+    
 class MemReader {   
 public:
-    
-    virtual void MonitorMemory(std::function<void(std::string,std::string));
+    //blocks execution and calls callback when data is received
+    virtual void MonitorMemory(std::function<void(std::string,std::string)>);
 };
 
+}
 #endif

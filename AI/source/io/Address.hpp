@@ -3,6 +3,8 @@
 
 #include <string>
 
+namespace io{
+
 class Address{
 public:
 
@@ -12,4 +14,5 @@ public:
     std::string address;
 };
 
+}
 #endif

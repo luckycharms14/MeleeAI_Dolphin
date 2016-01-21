@@ -4,6 +4,8 @@
 #include "Address.hpp"
 #include <string>
 
+namespace io {
+
 class FloatAddress : public Address{
 public:
 
@@ -12,4 +14,5 @@ public:
     float ParseBytes(long);
 };
 
+}
 #endif
