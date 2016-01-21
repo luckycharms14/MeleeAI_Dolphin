@@ -8,17 +8,18 @@ namespace io{
 class State{
 public:
 
-    void setInt(std::string,int);
-    void setBool(std::string,bool);
-    void setFloat(std::string,float);
+    void set(std::string,int);
+    void set(std::string,bool);
+    void set(std::string,float);
 
-    void getInt(std::string);
-    void getBool(std::string);
-    void getFloat(std::string);
+    int getInt(std::string);
+    bool getBool(std::string);
+    float getFloat(std::string);
 
-    std::map<std::string,float> floatValues;
-    std::map<std::string,int> integerValues;
-    std::map<std::string,bool> booleanValues;
+private:
+    std::map<std::string,float> _floatValues;
+    std::map<std::string,int> _integerValues;
+    std::map<std::string,bool> _booleanValues;
 };
 
 }
