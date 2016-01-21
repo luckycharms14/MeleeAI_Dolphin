@@ -11,7 +11,7 @@ public:
 
     FloatAddress(std::string n, std::string a): Address(n,a){}
 
-    float ParseBytes(long);
+    float ParseBytes(std::string);
 };
 
 }

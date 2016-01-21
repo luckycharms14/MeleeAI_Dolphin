@@ -11,7 +11,7 @@ public:
 
     BoolAddress(std::string n, std::string a, int cv, int s = 0, int m = 0xFFFFFFFF): Address(n,a), compareValue(cv), shift(s), mask(m) {}
 
-    bool ParseBytes(long);
+    bool ParseBytes(std::string);
     int compareValue;
     int shift;
     int mask;
