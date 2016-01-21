@@ -47,8 +47,8 @@ build/RecoveryFox.o: source/AI/RecoveryBot/RecoveryFox.cpp
 build/LedgeBot.o: source/AI/LedgeBot.cpp
 	$(CXX) $(CFLAGS) source/AI/LedgeBot.cpp -o build/LedgeBot.o
 
-build/MemReader.o: source/MemReader.cpp
-	$(CXX) $(CFLAGS) source/MemReader.cpp -o build/MemReader.o
+build/MemReader.o: source/io/MemReader.cpp
+	$(CXX) $(CFLAGS) source/io/MemReader.cpp -o build/MemReader.o
 
 build/DIBot.o: source/AI/DIBot.cpp
 	$(CXX) $(CFLAGS) source/AI/DIBot.cpp -o build/DIBot.o
