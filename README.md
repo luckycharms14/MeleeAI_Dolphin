@@ -83,7 +83,6 @@ or, particularly if there are several spaces or other ambiguous characters,
 ```bash
 $ ./MeleeAI "/Users/username/Library/Application Support/Dolphin"
 ```
-)
 
 Choose your character, select Fox for Player 2 and select a stage.
 If MeleeAI is working, when Fox is knocked off the stage, he will attempt to recover intelligently.
