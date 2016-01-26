@@ -75,7 +75,8 @@ When on the character select screen, run MeleeAI and provide it with the path to
 $ ./MeleeAI /path/to/dolphin-emu
 ```
 
-(Note: If your path contains a space, [as with the OS X example above](#setup-the-dolphin-home-folder), you will need to escape it before handing it to MeleeAI, e.g.,
+
+If your path contains a space, [as with the OS X example above](#setup-the-dolphin-home-folder), you will need to escape it before handing it to MeleeAI:
 ```bash
 $ ./MeleeAI /Users/username/Library/Application\ Support/Dolphin
 ```
